@@ -3,36 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تأكيد الطلبية</title>
+    <title>تأكيد الطلب | Couture Oum Fares</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #fff; margin: 0; padding: 20px; }
-        .order-box { max-width: 450px; margin: auto; border: 2px solid #000; padding: 25px; }
-        .logo-small { text-align: center; margin-bottom: 20px; }
-        .logo-small img { width: 70px; border-radius: 50%; border: 1px solid #000; }
-        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; box-sizing: border-box; }
-        .btn-send { background: #000; color: #fff; border: none; padding: 15px; width: 100%; cursor: pointer; font-weight: bold; }
-        h2 { text-align: center; font-size: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #000; margin: 0; padding: 20px; }
+        .order-container { max-width: 500px; margin: 40px auto; background: #fff; border: 2px solid #000; padding: 30px; }
+        .header-order { text-align: center; margin-bottom: 30px; }
+        .header-order img { width: 80px; height: 80px; border-radius: 50%; border: 1px solid #000; }
+        
+        h2 { text-align: center; text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        label { display: block; margin-top: 15px; font-weight: bold; font-size: 14px; }
+        input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; box-sizing: border-box; font-size: 16px; }
+        input:focus { border-color: #000; outline: none; }
+        
+        .btn-send { width: 100%; background: #000; color: #fff; border: none; padding: 18px; font-weight: bold; margin-top: 25px; cursor: pointer; font-size: 17px; }
+        .btn-send:hover { background: #333; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #666; text-decoration: none; font-size: 14px; }
     </style>
 </head>
 <body>
 
-<div class="order-box">
-    <div class="logo-small">
+<div class="order-container">
+    <div class="header-order">
         <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
+        <h3>COUTURE OUM FARES</h3>
     </div>
+
     <h2>تأكيد الطلبية 📋</h2>
+    
     <form action="https://formspree.io/f/mdappaoy" method="POST">
-        <input type="text" name="name" placeholder="الاسم الكامل" required>
-        <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+        <label>الاسم الكامل:</label>
+        <input type="text" name="name" placeholder="أدخلي اسمكِ هنا" required>
+
+        <label>رقم الهاتف:</label>
+        <input type="tel" name="phone" placeholder="06xxxxxxxx" required>
+
+        <label>نوع الخدمة:</label>
         <select name="service">
-            <option>خياطة فستان</option>
-            <option>طقم أفرشة</option>
-            <option>شورة صالة</option>
+            <option value="خياطة فستان">خياطة فستان / قندورة</option>
+            <option value="طقم أفرشة">طقم أفرشة نوم</option>
+            <option value="شورات صالة">تجهيز صالون (شورة)</option>
         </select>
-        <input type="text" name="address" placeholder="العنوان (الولاية/البلدية)" required>
-        <textarea name="note" rows="3" placeholder="ملاحظات إضافية..."></textarea>
-        <button type="submit" class="btn-send">إرسال الطلب النهائي ✅</button>
+
+        <label>العنوان:</label>
+        <input type="text" name="address" placeholder="الولاية والبلدية" required>
+
+        <label>ملاحظات (المقاس أو اللون):</label>
+        <textarea name="message" rows="3" placeholder="اكتبي تفاصيل إضافية هنا..."></textarea>
+
+        <button type="submit" class="btn-send">إرسال الطلب عبر الإيميل ✅</button>
     </form>
+    
+    <a href="index.html" class="back-link">← العودة للمتجر</a>
 </div>
 
 </body>
