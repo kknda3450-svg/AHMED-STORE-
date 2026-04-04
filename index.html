@@ -3,72 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خياطة وتفصيل - Harfoush Sewing</title>
+    <title>طلب خياطة وتفصيل</title>
     <style>
-        :root {
-            --main-color: #d63384; /* لون وردي أنيق للخياطة */
-            --dark-color: #1a1a1a;
-            --gold: #c5a059;
-        }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fdfdfd; color: #333; margin: 0; padding: 0; }
-        header { background: var(--dark-color); color: white; padding: 20px; text-align: center; border-bottom: 4px solid var(--main-color); }
-        .hero { background: #fff5f8; padding: 40px 20px; text-align: center; }
-        .hero h1 { color: var(--main-color); font-size: 32px; }
-        
-        .services { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 15px; }
-        .card { background: white; border: 1px solid #eee; border-radius: 15px; width: 280px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); border-color: var(--main-color); }
-        .card h3 { color: var(--dark-color); margin-top: 0; }
-        
-        .price-tag { color: var(--main-color); font-weight: bold; font-size: 20px; display: block; margin: 10px 0; }
-        
-        .cta-section { background: var(--dark-color); color: white; padding: 40px 20px; text-align: center; margin-top: 30px; }
-        .btn { background: var(--main-color); color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 18px; display: inline-block; transition: 0.3s; }
-        .btn:hover { background: white; color: var(--main-color); }
-        
-        footer { padding: 20px; text-align: center; font-size: 14px; color: #777; }
+        body { font-family: 'Segoe UI', sans-serif; background: #fdfdfd; text-align: center; padding: 20px; }
+        .form-container { background: white; max-width: 450px; margin: auto; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #d63384; }
+        h2 { color: #d63384; }
+        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        .submit-btn { background: #d63384; color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 18px; }
+        .submit-btn:hover { background: #b02a6b; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>🧵 ورشة الأناقة للخياطة</h1>
-</header>
+    <div class="form-container">
+        <h2>✂️ إرسال طلب تفصيل</h2>
+        <p>املئي البيانات وسنتصل بكِ لتأكيد الموعد</p>
 
-<section class="hero">
-    <h1>تفصيل حسب الطلب وبأرقى الأقمشة 💎</h1>
-    <p>خياطة عصرية، قنادر دار، فساتين مناسبات، وتصليح الملابس بدقة عالية.</p>
-</section>
+        <form action="https://formspree.io/f/mdappaoy" method="POST">
+            <label>الاسم الكامل:</label>
+            <input type="text" name="name" placeholder="أدخلي اسمكِ هنا" required>
 
-<section class="services">
-    <div class="card">
-        <h3>👗 خياطة فساتين</h3>
-        <p>فساتين سهرة ومناسبات بأحدث الموديلات العالمية.</p>
-        <span class="price-tag">ابتداءً من 5000 دج</span>
+            <label>رقم الهاتف:</label>
+            <input type="tel" name="phone" placeholder="06XXXXXXXX" required>
+
+            <label>نوع الخدمة:</label>
+            <select name="service">
+                <option value="فساتين سهرة">فستان سهرة</option>
+                <option value="قندورة دار">قندورة دار</option>
+                <option value="تعديل مقاسات">تعديل وملابس</option>
+            </select>
+
+            <label>ملاحظات إضافية:</label>
+            <textarea name="message" rows="4" placeholder="مثلاً: نوع القماش، الوقت المطلوب..."></textarea>
+
+            <button type="submit" class="submit-btn">إرسال الطلب الآن ✨</button>
+        </form>
     </div>
-
-    <div class="card">
-        <h3>🏡 قنادر الدار</h3>
-        <p>تفصيل قنادر الكتان والقطيفة بلمسة تقليدية عصرية.</p>
-        <span class="price-tag">ابتداءً من 2500 دج</span>
-    </div>
-
-    <div class="card">
-        <h3>✂️ تصليح وتعديل</h3>
-        <p>تعديل المقاسات، تضييق وتقصير الملابس بمهارة.</p>
-        <span class="price-tag">سعر رمزي</span>
-    </div>
-</section>
-
-<section class="cta-section">
-    <h2>هل تريدين تفصيل فستان أحلامك؟ ✨</h2>
-    <p>تواصلي معنا الآن عبر الواتساب أو التليجرام لحجز موعد أو الاستفسار.</p>
-    <a href="https://t.me/HarfoushFF" class="btn">اطلبي الآن عبر التليجرام 🚀</a>
-</section>
-
-<footer>
-    &copy; 2026 جميع الحقوق محفوظة لورشة الأناقة - تصميم Harfoush VIP
-</footer>
 
 </body>
 </html>
