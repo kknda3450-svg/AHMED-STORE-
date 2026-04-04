@@ -6,21 +6,83 @@
     <title>Couture Oum Fares | متجر خياطة أم فارس</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; color: #000; }
-        header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; position: sticky; top: 0; background: #fff; z-index: 1000; }
+        :root {
+            --accent-color: #000;
+            --bg-color: #fff;
+            --text-muted: #666;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--bg-color); color: #000; overflow-x: hidden; }
+        
+        header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent-color); position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; }
+        
         .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { width: 75px; height: 75px; border-radius: 50%; border: 1px solid #000; object-fit: cover; }
+        .logo-area img { width: 70px; height: 70px; border-radius: 50%; border: 1.5px solid var(--accent-color); object-fit: cover; transition: transform 0.3s ease; }
+        .logo-area:hover img { transform: rotate(10deg); }
+        .logo-text h1 { font-size: 20px; margin: 0; letter-spacing: 1px; font-weight: 800; }
+        .logo-text small { color: var(--text-muted); font-weight: 600; }
         
-        .container { padding: 20px 5%; }
-        .section-title { border-right: 5px solid #000; padding: 10px 15px; margin: 40px 0 20px; font-size: 20px; font-weight: bold; background: #f9f9f9; }
+        .container { padding: 40px 5%; max-width: 1200px; margin: auto; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #eee; background: #fff; text-align: center; padding: 10px; transition: 0.3s; }
-        .card:hover { border-color: #000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .card img { width: 100%; height: 280px; object-fit: cover; background: #f0f0f0; }
-        .btn-view { display: block; background: #000; color: #fff; text-decoration: none; padding: 12px; font-weight: bold; margin-top: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
-        footer { text-align: center; padding: 30px; background: #f4f4f4; margin-top: 40px; font-size: 14px; }
+        /* تحسين شكل البطاقة */
+        .card { 
+            position: relative;
+            background: #fff; 
+            border: 1px solid #f0f0f0; 
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: var(--card-shadow);
+        }
+        
+        .card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .img-container { width: 100%; height: 320px; overflow: hidden; background: #f9f9f9; }
+        .card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover img { transform: scale(1.1); }
+        
+        .card-info { padding: 20px; background: #fff; }
+        .card h3 { font-size: 18px; margin: 0 0 15px 0; font-weight: 700; color: #1a1a1a; }
+        
+        .btn-view { 
+            display: inline-block; 
+            width: 100%;
+            background: var(--accent-color); 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 14px; 
+            font-weight: bold; 
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+        
+        .btn-view:hover { background: #333; letter-spacing: 1px; }
+
+        footer { text-align: center; padding: 50px 20px; background: #fbfbfb; border-top: 1px solid #eee; margin-top: 60px; }
+        footer p { margin: 5px 0; color: var(--text-muted); }
+        .designer-tag { font-weight: bold; color: #000; margin-top: 10px; display: block; }
+
+        /* موبايل فرييندلي */
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            header { padding: 10px 15px; }
+            .logo-text h1 { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
@@ -28,64 +90,93 @@
 <header>
     <div class="logo-area">
         <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
-        <div>
-            <h1 style="font-size: 18px; margin: 0;">COUTURE OUM FARES</h1>
+        <div class="logo-text">
+            <h1>COUTURE OUM FARES</h1>
             <small>أصالة وإبداع أم فارس</small>
         </div>
     </div>
-    <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000; font-size: 24px;"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000; font-size: 26px;"><i class="fab fa-facebook"></i></a>
 </header>
 
 <div class="container">
     <div class="grid">
         <div class="card">
-            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" alt="طراشين">
-            <h3>طراشين ومناديل</h3>
-            <a href="product1.html" class="btn-view">استكشاف الموديلات ✨</a>
+            <div class="img-container">
+                <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" alt="طراشين">
+            </div>
+            <div class="card-info">
+                <h3>طراشين ومناديل</h3>
+                <a href="product1.html" class="btn-view">استكشاف الموديلات ✨</a>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://i.postimg.cc/Nf1GwGY4/images.jpg" alt="طقم صالة">
-            <h3>طقم صالة</h3>
-            <a href="product2.html" class="btn-view">استكشاف الموديلات ✨</a>
+            <div class="img-container">
+                <img src="https://i.postimg.cc/Nf1GwGY4/images.jpg" alt="طقم صالة">
+            </div>
+            <div class="card-info">
+                <h3>طقم صالة</h3>
+                <a href="product2.html" class="btn-view">استكشاف الموديلات ✨</a>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://i.postimg.cc/j241Z10G/images.jpg" alt="طقم أطفال">
-            <h3>طقم أطفال</h3>
-            <a href="product3.html" class="btn-view">استكشاف الموديلات ✨</a>
+            <div class="img-container">
+                <img src="https://i.postimg.cc/j241Z10G/images.jpg" alt="طقم أطفال">
+            </div>
+            <div class="card-info">
+                <h3>طقم أطفال</h3>
+                <a href="product3.html" class="btn-view">استكشاف الموديلات ✨</a>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png" alt="طقم مطبخ">
-            <h3>طقم مطبخ</h3>
-            <a href="product4.html" class="btn-view">استكشاف الموديلات ✨</a>
+            <div class="img-container">
+                <img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png" alt="طقم مطبخ">
+            </div>
+            <div class="card-info">
+                <h3>طقم مطبخ</h3>
+                <a href="product4.html" class="btn-view">استكشاف الموديلات ✨</a>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://i.postimg.cc/2SGzVH1q/images.jpg" alt="طقم بيبي">
-            <h3>طقم بيبي</h3>
-            <a href="product5.html" class="btn-view">استكشاف الموديلات ✨</a>
+            <div class="img-container">
+                <img src="https://i.postimg.cc/2SGzVH1q/images.jpg" alt="طقم بيبي">
+            </div>
+            <div class="card-info">
+                <h3>طقم بيبي</h3>
+                <a href="product5.html" class="btn-view">استكشاف الموديلات ✨</a>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://i.postimg.cc/Njdcg5nr/images.jpg" alt="طقم نزهة">
-            <h3>طقم نزهة</h3>
-            <a href="product6.html" class="btn-view">استكشاف الموديلات ✨</a>
+            <div class="img-container">
+                <img src="https://i.postimg.cc/Njdcg5nr/images.jpg" alt="طقم نزهة">
+            </div>
+            <div class="card-info">
+                <h3>طقم نزهة</h3>
+                <a href="product6.html" class="btn-view">استكشاف الموديلات ✨</a>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://i.postimg.cc/gk45h1Kw/images.jpg" alt="طقم عرائس">
-            <h3>طقم عرائس</h3>
-            <a href="product7.html" class="btn-view">استكشاف الموديلات ✨</a>
+            <div class="img-container">
+                <img src="https://i.postimg.cc/gk45h1Kw/images.jpg" alt="طقم عرائس">
+            </div>
+            <div class="card-info">
+                <h3>طقم عرائس</h3>
+                <a href="product7.html" class="btn-view">استكشاف الموديلات ✨</a>
+            </div>
         </div>
     </div>
 </div>
 
 <footer>
     <p>جميع الحقوق محفوظة لورشة أم فارس &copy; 2026</p>
-    <p>الجلفة - بلدية الزعفران</p>
+    <p><i class="fas fa-map-marker-alt"></i> الجلفة - بلدية الزعفران</p>
+    <span class="designer-tag">Designed by Harfoush VIP</span>
 </footer>
 
 </body>
-</html>
+    </html>
