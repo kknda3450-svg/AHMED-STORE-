@@ -6,61 +6,78 @@
     <title>Couture Oum Fares | الرئيسية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #fff; color: #000; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; color: #000; }
         header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; position: sticky; top: 0; background: #fff; z-index: 100; }
-        .logo { display: flex; align-items: center; gap: 10px; }
-        .logo img { width: 60px; height: 60px; border-radius: 50%; border: 1px solid #000; object-fit: cover; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        /* هنا تضع رابط اللوجو الخاص بك */
+        .logo-area img { width: 70px; height: 70px; border-radius: 50%; border: 1px solid #000; object-fit: cover; }
+        
+        .hero { width: 100%; height: 200px; background: #f4f4f4; display: flex; align-items: center; justify-content: center; text-align: center; border-bottom: 1px solid #eee; }
         
         .container { padding: 20px 5%; }
-        .section-title { background: #000; color: #fff; padding: 10px; margin: 30px 0 15px; font-size: 18px; text-align: center; }
+        .section-title { border-right: 5px solid #000; padding-right: 15px; margin: 40px 0 20px; font-size: 20px; font-weight: bold; background: #f9f9f9; padding: 10px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .item-card { border: 1px solid #eee; transition: 0.3s; padding: 10px; text-align: center; }
-        .item-card:hover { border-color: #000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .item-card img { width: 100%; height: 300px; object-fit: cover; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { border: 1px solid #eee; transition: 0.3s; background: #fff; text-align: center; }
+        .card:hover { border-color: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 350px; object-fit: cover; }
+        .card-info { padding: 15px; }
         
-        .btn-view { display: block; background: #000; color: #fff; text-decoration: none; padding: 12px; margin-top: 10px; font-weight: bold; }
-        footer { text-align: center; padding: 30px; background: #f9f9f9; font-size: 12px; border-top: 1px solid #eee; }
+        .btn-order { display: block; background: #000; color: #fff; text-decoration: none; padding: 15px; font-weight: bold; margin-top: 10px; }
+        footer { text-align: center; padding: 40px; background: #f4f4f4; margin-top: 50px; font-size: 13px; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">
-        <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Oum Fares Logo">
+    <div class="logo-area">
+        <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
         <div>
             <h1 style="font-size: 18px; margin: 0;">COUTURE OUM FARES</h1>
-            <small>أناقة الإبرة والخيط</small>
+            <small>خياطة أم فارس</small>
         </div>
     </div>
     <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000; font-size: 24px;"><i class="fab fa-facebook"></i></a>
 </header>
 
+<div class="hero">
+    <div>
+        <h2 style="margin:0;">أناقة تبدأ من الإبرة والخيط</h2>
+        <p>الجلفة - بلدية الزعفران</p>
+    </div>
+</div>
+
 <div class="container">
-    <div class="section-title">👗 ركن الفساتين والقنادر</div>
+    <div class="section-title">👗 فساتين وقنادر</div>
     <div class="grid">
-        <div class="item-card">
+        <div class="card">
             <img src="رابط_صورة_الفستان" alt="فستان">
-            <h3>فستان سهرة عصري</h3>
-            <a href="details.html" class="btn-view">استكشاف الموديل ✨</a>
+            <div class="card-info">
+                <h3>تصاميم عصرية</h3>
+                <a href="order.html" class="btn-order">اطلبي الآن 🛍️</a>
+            </div>
         </div>
     </div>
 
-    <div class="section-title">🛏️ الأفرشة وأغطية النوم</div>
+    <div class="section-title">🛏️ أفرشة وأغطية نوم</div>
     <div class="grid">
-        <div class="item-card">
-            <img src="رابط_صورة_الفراش" alt="أفرشة">
-            <h3>طقم سرير مطرز</h3>
-            <a href="details.html" class="btn-view">التفاصيل ✨</a>
+        <div class="card">
+            <img src="رابط_صورة_الفراش" alt="فراش">
+            <div class="card-info">
+                <h3>أطقم سرير مطرزة</h3>
+                <a href="order.html" class="btn-order">اطلبي الآن 🛍️</a>
+            </div>
         </div>
     </div>
 
-    <div class="section-title">🛋️ شورات الصالة</div>
+    <div class="section-title">🛋️ شورات صالة</div>
     <div class="grid">
-        <div class="item-card">
+        <div class="card">
             <img src="رابط_صورة_الشورة" alt="شورة">
-            <h3>تجهيز صالون ملكي</h3>
-            <a href="details.html" class="btn-view">التفاصيل ✨</a>
+            <div class="card-info">
+                <h3>تجهيز صالونات ملكية</h3>
+                <a href="order.html" class="btn-order">اطلبي الآن 🛍️</a>
+            </div>
         </div>
     </div>
 </div>
