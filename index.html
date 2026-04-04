@@ -6,105 +6,68 @@
     <title>Couture Oum Fares | خياطة أم فارس</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #000000;
-            --secondary: #ffffff;
-            --gray: #f4f4f4;
-        }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--secondary); color: var(--primary); margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #ffffff; color: #000000; margin: 0; padding: 0; }
         
-        /* الهيدر واللوغو */
-        header { background: var(--secondary); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); position: sticky; top: 0; z-index: 1000; }
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { width: 60px; height: 60px; border-radius: 50%; border: 1px solid var(--primary); object-fit: cover; }
-        .logo-text h1 { font-size: 20px; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
-        .logo-text p { font-size: 12px; margin: 0; color: #666; }
+        /* الهيدر */
+        header { background: #ffffff; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; position: sticky; top: 0; z-index: 1000; }
+        .logo-box { display: flex; align-items: center; gap: 15px; }
+        .logo-box img { width: 55px; height: 55px; border-radius: 50%; border: 1px solid #000; }
+        .logo-text h1 { font-size: 18px; margin: 0; text-transform: uppercase; }
 
-        /* غلاف الصفحة */
-        .hero-banner { width: 100%; height: 250px; background: url('https://i.postimg.cc/mD7D6X0t/Screenshot-20260404-205744.jpg') no-repeat center; background-size: cover; display: flex; align-items: center; justify-content: center; position: relative; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.7); }
-        .hero-content { position: relative; z-index: 1; text-align: center; }
+        /* الغلاف */
+        .main-banner { width: 100%; height: 200px; background: url('https://i.postimg.cc/mD7D6X0t/Screenshot-20260404-205744.jpg') no-repeat center; background-size: cover; position: relative; border-bottom: 1px solid #eee; }
+        .banner-text { position: absolute; bottom: 10px; right: 20px; background: rgba(0,0,0,0.7); color: #fff; padding: 5px 15px; border-radius: 5px; font-size: 14px; }
 
-        /* شبكة المنتجات */
-        .container { padding: 40px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: white; border: 1px solid #eee; overflow: hidden; transition: 0.3s; position: relative; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--primary); }
-        .card img { width: 100%; height: 350px; object-fit: cover; filter: grayscale(20%); transition: 0.5s; }
-        .card:hover img { filter: grayscale(0%); }
-        .card-info { padding: 20px; text-align: right; }
-        .card-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
-        .card-price { color: #555; font-size: 16px; margin-bottom: 20px; display: block; }
-        .order-btn { background: var(--primary); color: var(--secondary); text-decoration: none; padding: 12px; display: block; text-align: center; font-weight: bold; text-transform: uppercase; font-size: 14px; transition: 0.3s; }
-        .order-btn:hover { background: #333; }
+        /* المنتجات */
+        .shop-container { padding: 30px 5%; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .product-item { border: 1px solid #eee; padding: 10px; transition: 0.3s; }
+        .product-item:hover { border-color: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .product-item img { width: 100%; height: 320px; object-fit: cover; }
+        .product-info { padding: 15px 0; text-align: center; }
+        .buy-now { background: #000; color: #fff; text-decoration: none; padding: 12px; display: block; font-weight: bold; margin-top: 10px; }
 
-        /* تواصل معنا */
-        .social-bar { padding: 20px; background: var(--gray); text-align: center; border-top: 1px solid #ddd; }
-        .social-bar a { color: var(--primary); font-size: 24px; margin: 0 15px; text-decoration: none; transition: 0.3s; }
-        .social-bar a:hover { color: #555; }
-        
-        @media (max-width: 600px) {
-            header { flex-direction: column; gap: 10px; }
-            .hero-banner { height: 150px; }
-        }
+        /* تواصل */
+        footer { background: #f9f9f9; padding: 30px; text-align: center; border-top: 1px solid #eee; }
+        .fb-link { color: #000; text-decoration: none; font-size: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-area">
+    <div class="logo-box">
         <img src="https://i.postimg.cc/q733M0fK/1775332654457.jpg" alt="Logo">
         <div class="logo-text">
-            <h1>COUTURE OUM FARES</h1>
-            <p>أناقة تبدأ من الإبرة والخيط</p>
+            <h1>Couture Oum Fares</h1>
+            <span style="font-size: 12px;">أناقة تبدأ من الإبرة والخيط</span>
         </div>
     </div>
-    <div class="contact-header">
-        <a href="https://www.facebook.com/awlady.jnty.383860" style="color: black; text-decoration: none; font-weight: bold;">
-            <i class="fab fa-facebook"></i> تابعونا
-        </a>
-    </div>
+    <a href="https://www.facebook.com/awlady.jnty.383860" target="_blank" class="fb-link">
+        <i class="fab fa-facebook"></i>
+    </a>
 </header>
 
-<div class="hero-banner">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h2 style="margin:0; font-size: 28px;">تصاميم حصرية لامرأة متميزة</h2>
-        <p>الجلفة - بلدية الزعفران</p>
-    </div>
+<div class="main-banner">
+    <div class="banner-text">الجلفة - بلدية الزعفران 📍</div>
 </div>
 
-<div class="container">
-    <div class="grid">
-        <div class="card">
-            <img src="رابط_صورة_الفستان_1" alt="فستان">
-            <div class="card-info">
-                <div class="card-title">فستان سهرة أسود كلاسيك</div>
-                <span class="card-price">السعر حسب المقاس</span>
-                <a href="order.html" class="order-btn">حجز طلب تفصيل</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="رابط_صورة_الفستان_2" alt="قندورة">
-            <div class="card-info">
-                <div class="card-title">قندورة قطيفة مطرزة</div>
-                <span class="card-price">عرض خاص</span>
-                <a href="order.html" class="order-btn">حجز طلب تفصيل</a>
+<div class="shop-container">
+    <div class="product-grid">
+        <div class="product-item">
+            <img src="رابط_صورة_الفستان" alt="تصميم أم فارس">
+            <div class="product-info">
+                <h3>فستان موديل كلاسيك</h3>
+                <p>قماش ممتاز وتفصيل دقيق</p>
+                <a href="order.html" class="buy-now">اطلبي الآن ✂️</a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="social-bar">
-    <p>تواصلوا معنا عبر منصاتنا</p>
-    <a href="https://www.facebook.com/awlady.jnty.383860"><i class="fab fa-facebook"></i></a>
-    <a href="https://instagram.com/Couture_Oum_Fares"><i class="fab fa-instagram"></i></a>
-    <a href="https://t.me/HarfoushFF"><i class="fab fa-telegram"></i></a>
-</div>
-
-<footer style="text-align: center; padding: 20px; font-size: 12px; color: #999;">
-    &copy; 2026 Couture Oum Fares | Designed by Harfoush VIP
+<footer>
+    <p>تابعونا على الفيسبوك لمشاهدة جديدنا</p>
+    <a href="https://www.facebook.com/awlady.jnty.383860" class="fb-link">Couture Oum Fares</a>
+    <p style="font-size: 10px; color: #999; margin-top: 20px;">Designed by Harfoush VIP</p>
 </footer>
 
 </body>
