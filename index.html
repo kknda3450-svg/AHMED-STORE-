@@ -3,25 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harfoush VIP Store</title>
+    <title>خياطة وتفصيل - Harfoush Sewing</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0a0a0a; color: white; text-align: center; padding: 20px; margin: 0; }
-        .box { border: 2px solid #ffcc00; padding: 30px; border-radius: 20px; background: #161616; max-width: 450px; margin: 40px auto; box-shadow: 0 0 20px rgba(255, 204, 0, 0.3); }
-        h1 { color: #ffcc00; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; }
-        .price { background: #222; padding: 12px; margin: 12px 0; border-radius: 10px; border-right: 6px solid #ffcc00; font-size: 18px; display: flex; justify-content: space-between; align-items: center; }
-        .btn { background: #ffcc00; color: black; padding: 15px 40px; text-decoration: none; border-radius: 12px; font-weight: bold; display: inline-block; margin-top: 30px; font-size: 20px; transition: 0.3s; }
-        .btn:hover { transform: scale(1.05); background: #fff; }
+        :root {
+            --main-color: #d63384; /* لون وردي أنيق للخياطة */
+            --dark-color: #1a1a1a;
+            --gold: #c5a059;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fdfdfd; color: #333; margin: 0; padding: 0; }
+        header { background: var(--dark-color); color: white; padding: 20px; text-align: center; border-bottom: 4px solid var(--main-color); }
+        .hero { background: #fff5f8; padding: 40px 20px; text-align: center; }
+        .hero h1 { color: var(--main-color); font-size: 32px; }
+        
+        .services { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; gap: 15px; }
+        .card { background: white; border: 1px solid #eee; border-radius: 15px; width: 280px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); border-color: var(--main-color); }
+        .card h3 { color: var(--dark-color); margin-top: 0; }
+        
+        .price-tag { color: var(--main-color); font-weight: bold; font-size: 20px; display: block; margin: 10px 0; }
+        
+        .cta-section { background: var(--dark-color); color: white; padding: 40px 20px; text-align: center; margin-top: 30px; }
+        .btn { background: var(--main-color); color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 18px; display: inline-block; transition: 0.3s; }
+        .btn:hover { background: white; color: var(--main-color); }
+        
+        footer { padding: 20px; text-align: center; font-size: 14px; color: #777; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>💎 HARFOUSH VIP 💎</h1>
-        <p style="color: #bbb;">أسرع شحن جواهر فري فاير في الجزائر 🇩🇿</p>
-        <hr style="border: 0.5px solid #333;">
-        <div class="price"><span>100 جوهرة 💎</span> <span>250 دج</span></div>
-        <div class="price"><span>210 جوهرة 💎</span> <span>450 دج</span></div>
-        <div class="price"><span>530 جوهرة 💎</span> <span>1150 دج</span></div>
-        <a href="https://t.me/HarfoushFF" class="btn">اطلب عبر تليجرام 🚀</a>
+
+<header>
+    <h1>🧵 ورشة الأناقة للخياطة</h1>
+</header>
+
+<section class="hero">
+    <h1>تفصيل حسب الطلب وبأرقى الأقمشة 💎</h1>
+    <p>خياطة عصرية، قنادر دار، فساتين مناسبات، وتصليح الملابس بدقة عالية.</p>
+</section>
+
+<section class="services">
+    <div class="card">
+        <h3>👗 خياطة فساتين</h3>
+        <p>فساتين سهرة ومناسبات بأحدث الموديلات العالمية.</p>
+        <span class="price-tag">ابتداءً من 5000 دج</span>
     </div>
+
+    <div class="card">
+        <h3>🏡 قنادر الدار</h3>
+        <p>تفصيل قنادر الكتان والقطيفة بلمسة تقليدية عصرية.</p>
+        <span class="price-tag">ابتداءً من 2500 دج</span>
+    </div>
+
+    <div class="card">
+        <h3>✂️ تصليح وتعديل</h3>
+        <p>تعديل المقاسات، تضييق وتقصير الملابس بمهارة.</p>
+        <span class="price-tag">سعر رمزي</span>
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>هل تريدين تفصيل فستان أحلامك؟ ✨</h2>
+    <p>تواصلي معنا الآن عبر الواتساب أو التليجرام لحجز موعد أو الاستفسار.</p>
+    <a href="https://t.me/HarfoushFF" class="btn">اطلبي الآن عبر التليجرام 🚀</a>
+</section>
+
+<footer>
+    &copy; 2026 جميع الحقوق محفوظة لورشة الأناقة - تصميم Harfoush VIP
+</footer>
+
 </body>
 </html>
