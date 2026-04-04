@@ -38,12 +38,17 @@
         <label>رقم الهاتف:</label>
         <input type="tel" name="phone" placeholder="06xxxxxxxx" required>
 
-        <label>نوع الخدمة:</label>
-        <select name="service">
-            <option value="خياطة فستان">خياطة فستان / قندورة</option>
-            <option value="طقم أفرشة">طقم أفرشة نوم</option>
-            <option value="شورات صالة">تجهيز صالون (شورة)</option>
-        </select>
+        <label>نوع المنتج أو الخدمة:</label>
+<select name="service" required style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; font-size: 16px;">
+    <option value="" disabled selected>إختاري نوع المنتج...</option>
+    <option value="طراشين ومناديل">طراشين ومناديل</option>
+    <option value="طقم صالة">طقم صالة</option>
+    <option value="طقم أطفال">طقم أطفال</option>
+    <option value="طقم مطبخ">طقم مطبخ</option>
+    <option value="طقم بيبي">طقم بيبي</option>
+    <option value="طقم نزهة">طقم نزهة</option>
+    <option value="طقم عرائس">طقم عرائس</option>
+</select>
 
         <label>العنوان:</label>
         <input type="text" name="address" placeholder="الولاية والبلدية" required>
