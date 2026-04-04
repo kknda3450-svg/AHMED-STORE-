@@ -3,77 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل التصميم | Couture Oum Fares</title>
+    <title>تفاصيل المنتج | Couture Oum Fares</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --black: #000000; --white: #ffffff; --gray: #f9f9f9; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--white); color: var(--black); line-height: 1.6; }
+        :root { --black: #000; --white: #fff; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--white); color: var(--black); }
+        header { padding: 15px; border-bottom: 2px solid var(--black); text-align: center; background: #fff; }
+        header img { width: 75px; height: 75px; border-radius: 50%; border: 1px solid var(--black); object-fit: cover; }
         
-        header { padding: 15px; border-bottom: 2px solid var(--black); text-align: center; background: var(--white); sticky; top: 0; }
-        header img { width: 60px; height: 60px; border-radius: 50%; border: 1px solid var(--black); }
-
-        .container { max-width: 700px; margin: auto; padding: 20px; }
+        .container { padding: 20px; max-width: 600px; margin: auto; padding-bottom: 100px; }
+        #product-img { width: 100%; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
         
-        /* معرض الصور */
-        .main-image { width: 100%; border: 1px solid #eee; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        
-        /* معلومات المنتج */
-        .product-header { border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px; }
-        .product-header h1 { font-size: 24px; margin: 0; color: var(--black); }
-        .tag { display: inline-block; background: var(--black); color: var(--white); padding: 3px 10px; font-size: 12px; margin-top: 10px; }
+        .info-box h1 { font-size: 24px; margin: 10px 0; border-right: 4px solid #000; padding-right: 10px; }
+        .price-tag { font-size: 20px; font-weight: bold; margin: 15px 0; color: #333; }
+        .description { line-height: 1.8; color: #555; background: #f9f9f9; padding: 15px; border-radius: 5px; }
 
-        .description-box { padding: 15px 0; }
-        .description-box p { color: #444; font-size: 16px; }
-
-        .features-list { list-style: none; padding: 0; margin: 20px 0; }
-        .features-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-size: 15px; }
-        .features-list li i { color: #000; font-size: 18px; }
-
-        /* أزرار التحكم */
-        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); display: flex; border-top: 2px solid var(--black); z-index: 1000; }
-        .btn-order { flex: 2; background: var(--black); color: var(--white); text-decoration: none; text-align: center; padding: 18px; font-weight: bold; font-size: 17px; }
-        .btn-back { flex: 1; background: #eee; color: var(--black); text-decoration: none; text-align: center; padding: 18px; font-weight: bold; }
-
-        @media (max-width: 600px) {
-            .container { padding: 10px; }
-            .product-header h1 { font-size: 20px; }
-        }
+        .nav-bar { position: fixed; bottom: 0; width: 100%; display: flex; border-top: 2px solid var(--black); z-index: 1000; }
+        .btn-order { flex: 2; background: var(--black); color: var(--white); text-decoration: none; text-align: center; padding: 20px; font-weight: bold; font-size: 18px; }
+        .btn-back { flex: 1; background: #eee; color: var(--black); text-decoration: none; text-align: center; padding: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
-    <div style="font-weight: bold; font-size: 14px; margin-top: 5px;">COUTURE OUM FARES</div>
+    <img src="https://i.postimg.cc/q733M0fK/1775332654457.jpg" alt="Logo">
+    <div style="font-weight: bold; margin-top: 5px;">COUTURE OUM FARES</div>
 </header>
 
 <div class="container">
-    <img src="رابط_صورة_المنتج_المباشر" alt="تصميم أم فارس" class="main-image">
-
-    <div class="product-header">
-        <h1>تفاصيل التصميم والإتقان</h1>
-        <span class="tag">خياطة حسب الطلب ✂️</span>
+    <img id="product-img" src="" alt="تحميل الصورة...">
+    <div class="info-box">
+        <h1 id="product-title">تحميل التفاصيل...</h1>
+        <div class="price-tag" id="product-price">-- دج</div>
+        <div class="description" id="product-desc">
+            يتم تحميل وصف المنتج، يرجى الانتظار...
+        </div>
     </div>
-
-    <div class="description-box">
-        <p>
-            نقدم لكم أرقى الموديلات التي تجمع بين الأصالة والعصرنة. كل قطعة يتم خياطتها بلمسة فنية خاصة تضمن لكِ التميز والراحة، سواء كانت فساتين للمناسبات أو أفرشة نوم راقية.
-        </p>
-    </div>
-
-    <ul class="features-list">
-        <li><i class="fas fa-gem"></i> أقمشة ذات جودة عالية ومختارة بعناية.</li>
-        <li><i class="fas fa-cut"></i> إتقان تام في التفاصيل والقياسات.</li>
-        <li><i class="fas fa-clock"></i> احترام مواعيد التسليم المتفق عليها.</li>
-        <li><i class="fas fa-map-marker-alt"></i> متوفر في الجلفة - بلدية الزعفران.</li>
-    </ul>
-
-    <div style="height: 100px;"></div> </div>
-
-<div class="bottom-nav">
-    <a href="index.html" class="btn-back">رجوع</a>
-    <a href="order.html" class="btn-order">اطلبي الآن (تأكيد الطلب) 🛍️</a>
 </div>
+
+<div class="nav-bar">
+    <a href="index.html" class="btn-back">رجوع</a>
+    <a href="order.html" class="btn-order">اطلبي الآن 🛍️</a>
+</div>
+
+<script>
+    // برمجة تغيير المحتوى تلقائياً
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+
+    const products = {
+        'dress': {
+            title: "فساتين وقنادر مناسبات",
+            price: "حسب التصميم ونوع القماش",
+            desc: "خياطة فساتين سهرة وقنادر جزائرية عصرية بلمسة أم فارس. نضمن لكِ الاتقان التام في القياسات وجودة في اختيار الأقمشة الفاخرة.",
+            img: "رابط_صورة_الفستان_المباشر"
+        },
+        'bed': {
+            title: "أفرشة وأغطية نوم راقية",
+            price: "حسب المقاس وعدد القطع",
+            desc: "أطقم سرير مطرزة يدوياً وبآلات حديثة. أغطية نوم ناعمة ومريحة تضفي جمالاً خاصاً على غرفتك، مع إمكانية اختيار الألوان المفضلة.",
+            img: "رابط_صورة_الأفرشة_المباشر"
+        },
+        'salon': {
+            title: "تجهيز صالونات (شورات صالة)",
+            price: "عرض خاص لتجهيز الصالونات",
+            desc: "خياطة شورات صالة ملكية وعصرية. نهتم بأدق التفاصيل في الحشو والتطريز لتناسب ذوقك الرفيع وتجعل صالونك مكاناً مميزاً.",
+            img: "رابط_صورة_الشورة_المباشر"
+        }
+    };
+
+    if (products[type]) {
+        document.getElementById('product-title').innerText = products[type].title;
+        document.getElementById('product-price').innerText = products[type].price;
+        document.getElementById('product-desc').innerText = products[type].desc;
+        document.getElementById('product-img').src = products[type].img;
+        document.title = products[type].title + " | Couture Oum Fares";
+    } else {
+        // في حال لم يجد المنتج يرجع للصفحة الرئيسية
+        window.location.href = 'index.html';
+    }
+</script>
 
 </body>
 </html>
