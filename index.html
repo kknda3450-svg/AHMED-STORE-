@@ -3,42 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طلب خياطة وتفصيل</title>
+    <title>متجر الأناقة - Harfoush Sewing</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #fdfdfd; text-align: center; padding: 20px; }
-        .form-container { background: white; max-width: 450px; margin: auto; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #d63384; }
-        h2 { color: #d63384; }
-        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-        .submit-btn { background: #d63384; color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 18px; }
-        .submit-btn:hover { background: #b02a6b; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; margin: 0; padding: 20px; text-align: center; }
+        h1 { color: #d63384; margin-bottom: 30px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
+        .product-card { background: white; border-radius: 15px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #eee; }
+        .product-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; background: #eee; }
+        .product-name { font-size: 20px; font-weight: bold; margin: 10px 0; color: #333; }
+        .product-price { color: #d63384; font-size: 18px; font-weight: bold; margin-bottom: 15px; display: block; }
+        .buy-btn { background: #d63384; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; display: block; font-weight: bold; transition: 0.3s; }
+        .buy-btn:hover { background: #b02a6b; }
     </style>
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>✂️ إرسال طلب تفصيل</h2>
-        <p>املئي البيانات وسنتصل بكِ لتأكيد الموعد</p>
+    <h1>✨ معرض تصاميم Harfoush VIP ✨</h1>
 
-        <form action="https://formspree.io/f/mdappaoy" method="POST">
-            <label>الاسم الكامل:</label>
-            <input type="text" name="name" placeholder="أدخلي اسمكِ هنا" required>
+    <div class="products-grid">
+        
+        <div class="product-card">
+            <img src="https://via.placeholder.com/250x350?text=فستان+1" alt="فستان">
+            <div class="product-name">فستان سهرة ملكي</div>
+            <span class="product-price">8500 دج</span>
+            <a href="order.html" class="buy-btn">تأكيد الطلب ✂️</a>
+        </div>
 
-            <label>رقم الهاتف:</label>
-            <input type="tel" name="phone" placeholder="06XXXXXXXX" required>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/250x350?text=قندورة+2" alt="قندورة">
+            <div class="product-name">قندورة قطيفة عصرية</div>
+            <span class="product-price">4500 دج</span>
+            <a href="order.html" class="buy-btn">تأكيد الطلب ✂️</a>
+        </div>
 
-            <label>نوع الخدمة:</label>
-            <select name="service">
-                <option value="فساتين سهرة">فستان سهرة</option>
-                <option value="قندورة دار">قندورة دار</option>
-                <option value="تعديل مقاسات">تعديل وملابس</option>
-            </select>
-
-            <label>ملاحظات إضافية:</label>
-            <textarea name="message" rows="4" placeholder="مثلاً: نوع القماش، الوقت المطلوب..."></textarea>
-
-            <button type="submit" class="submit-btn">إرسال الطلب الآن ✨</button>
-        </form>
-    </div>
+        </div>
 
 </body>
 </html>
