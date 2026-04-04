@@ -3,91 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تأكيد الطلبية | Couture Oum Fares</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>تأكيد الطلب | Couture Oum Fares</title>
     <style>
-        :root {
-            --black: #000000;
-            --white: #ffffff;
-            --gray: #f9f9f9;
-        }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--gray); color: var(--black); margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        
-        header { background: var(--white); padding: 15px; text-align: center; border-bottom: 2px solid var(--black); }
-        header img { width: 50px; border-radius: 50%; border: 1px solid var(--black); }
-
-        .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .order-card { background: var(--white); width: 100%; max-width: 450px; padding: 30px; border-radius: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        
-        h2 { text-align: center; font-size: 22px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px; border-bottom: 1px solid #000; padding-bottom: 10px; }
-        
-        .form-group { margin-bottom: 15px; text-align: right; }
-        label { display: block; font-size: 14px; font-weight: bold; margin-bottom: 5px; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 0; font-size: 16px; box-sizing: border-box; transition: 0.3s; }
-        input:focus, select:focus, textarea:focus { border-color: var(--black); outline: none; background: #fffcfc; }
-
-        .submit-btn { width: 100%; background: var(--black); color: var(--white); border: none; padding: 15px; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 20px; transition: 0.3s; }
-        .submit-btn:hover { background: #333; letter-spacing: 2px; }
-
-        .info-note { font-size: 12px; color: #666; text-align: center; margin-top: 15px; line-height: 1.4; }
-        footer { padding: 20px; text-align: center; font-size: 12px; color: #999; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #000; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background: #fff; padding: 20px; text-align: center; border-bottom: 2px solid #000; }
+        header img { width: 60px; border-radius: 50%; }
+        .form-container { flex: 1; display: flex; justify-content: center; padding: 40px 20px; }
+        .order-form { background: #fff; width: 100%; max-width: 450px; padding: 30px; border: 1px solid #ddd; }
+        h2 { border-bottom: 1px solid #000; padding-bottom: 10px; margin-bottom: 25px; text-align: center; }
+        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; box-sizing: border-box; }
+        .submit-btn { width: 100%; background: #000; color: #fff; border: none; padding: 15px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <header>
     <img src="https://i.postimg.cc/q733M0fK/1775332654457.jpg" alt="Logo">
-    <div style="font-weight: bold; margin-top: 5px;">COUTURE OUM FARES</div>
 </header>
 
-<div class="container">
-    <div class="order-card">
-        <h2><i class="fas fa-check-circle"></i> تأكيد الطلبية</h2>
-        
-        <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
-            
-            <div class="form-group">
-                <label>الاسم الكامل:</label>
-                <input type="text" name="اسم_الزبونة" placeholder="أدخلي اسمكِ هنا" required>
-            </div>
-
-            <div class="form-group">
-                <label>رقم الهاتف:</label>
-                <input type="tel" name="الهاتف" placeholder="06XXXXXXXX" required>
-            </div>
-
-            <div class="form-group">
-                <label>نوع الخدمة / المنتج:</label>
-                <select name="نوع_الطلب">
-                    <option value="فستان سهرة">فستان سهرة / خياطة</option>
-                    <option value="أفرشة نوم">طقم أفرشة نوم</option>
-                    <option value="شورات صالة">تجهيز صالون (شورة)</option>
-                    <option value="تعديل ملابس">تعديل ملابس</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>العنوان (الولاية والبلدية):</label>
-                <input type="text" name="العنوان" placeholder="مثلاً: الجلفة - الزعفران" required>
-            </div>
-
-            <div class="form-group">
-                <label>تفاصيل إضافية (اختياري):</label>
-                <textarea name="ملاحظات" rows="3" placeholder="أذكري المقاس، اللون، أو أي تفاصيل أخرى..."></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">إرسال الطلب النهائي</button>
-            
-            <p class="info-note">
-                بمجرد إرسال الطلب، سنتصل بكِ هاتفياً لتأكيد التفاصيل النهائية وموعد التسليم.
-            </p>
+<div class="form-container">
+    <div class="order-form">
+        <h2>معلومات الطلب</h2>
+        <form action="https://formspree.io/f/mdappaoy" method="POST">
+            <input type="text" name="الاسم" placeholder="الاسم الكامل" required>
+            <input type="tel" name="الهاتف" placeholder="رقم الهاتف" required>
+            <select name="المنتج">
+                <option value="فستان">فستان / قندورة</option>
+                <option value="أفرشة">طقم أفرشة</option>
+                <option value="شورة">شورة صالة</option>
+            </select>
+            <input type="text" name="العنوان" placeholder="الولاية والبلدية" required>
+            <textarea name="ملاحظات" rows="4" placeholder="المقاس أو أي طلب خاص..."></textarea>
+            <button type="submit" class="submit-btn">إرسال الطلب النهائي ✅</button>
         </form>
     </div>
 </div>
-
-<footer>
-    Designed by Harfoush VIP | 2026
-</footer>
 
 </body>
 </html>
