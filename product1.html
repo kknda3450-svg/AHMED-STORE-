@@ -3,257 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Couture Oum Fares | استكشاف الموديلات</title>
+    <title>استكشاف الموديلات | Couture Oum Fares</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* المتغيرات الأساسية */
-        :root {
-            --primary: #000;
-            --accent: #e67e22;
-            --bg-light: #fbfbfb;
-            --white: #fff;
-            --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            margin: 0; 
-            background: var(--bg-light); 
-            color: #333; 
-            /* إضافة مساحة كافية في الأسفل لكي لا يغطي الشريط آخر المحتوى */
-            padding-bottom: 120px; 
-            overflow-x: hidden;
-        }
+        :root { --accent: #000; --orange: #e67e22; --bg: #f8f9fa; --success: #27ae60; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--bg); color: #333; padding-bottom: 20px; }
         
-        /* الهيدر الأنيق */
         header { 
-            padding: 10px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 1px solid #eee; 
-            position: sticky; 
-            top: 0; 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px);
-            z-index: 1000; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 1000;
         }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand img { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #000; object-fit: cover; }
+        .cart-link { position: relative; font-size: 22px; color: #000; text-decoration: none; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--orange); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; font-weight: bold; }
+
+        .container { padding: 20px 5%; max-width: 900px; margin: auto; }
         
-        .logo-area { display: flex; align-items: center; gap: 10px; }
-        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid var(--primary); object-fit: cover; }
-        .logo-area h1 { font-size: 14px; margin: 0; letter-spacing: 0.5px; }
+        /* شبكة الموديلات (3 موديلات) */
+        .models-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .model-card { background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid #f0f0f0; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .model-img { width: 100%; height: 160px; object-fit: cover; }
+        .model-info { padding: 12px; text-align: center; }
+        .model-name { font-weight: bold; font-size: 13px; display: block; margin-bottom: 6px; height: 35px; overflow: hidden; }
+        .model-price { color: var(--orange); font-weight: 800; font-size: 15px; display: block; margin-bottom: 12px; }
+        .btn-add { background: var(--accent); color: #fff; border: none; width: 100%; padding: 10px; border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 12px; }
 
-        .header-actions { display: flex; align-items: center; gap: 15px; }
-        .cart-icon { position: relative; font-size: 20px; color: var(--primary); text-decoration: none; transition: 0.3s; }
-        .cart-icon:hover { color: var(--accent); }
-        .cart-count { 
-            position: absolute; top: -8px; right: -10px; background: var(--accent); 
-            color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; font-weight: bold; 
+        /* صندوق المعلومات (الوصف والشحن) */
+        .info-card { background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; margin-bottom: 30px; }
+        .info-item { display: flex; gap: 15px; margin-bottom: 20px; }
+        .info-item:last-child { margin-bottom: 0; }
+        .info-icon { width: 40px; height: 40px; background: #fff5ed; color: var(--orange); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+        .info-text h4 { margin: 0 0 5px; font-size: 15px; font-weight: 800; }
+        .info-text p { margin: 0; color: #666; font-size: 12px; line-height: 1.6; }
+
+        /* زر العودة المنظم */
+        .home-navigation { text-align: center; margin: 30px 0; }
+        .btn-back-home { 
+            display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #000; 
+            border: 2px solid #000; padding: 12px 25px; border-radius: 50px; text-decoration: none; 
+            font-weight: bold; font-size: 14px; transition: 0.3s; 
         }
+        .btn-back-home:hover { background: #000; color: #fff; }
 
-        /* الحاوية الرئيسية */
-        .container { padding: 20px 5%; max-width: 1200px; margin: auto; }
+        /* قسم الحقوق */
+        footer { text-align: center; padding: 30px 20px; color: #aaa; font-size: 11px; border-top: 1px solid #eee; margin-top: 20px; }
 
-        /* البطاقة الرئيسية للمنتج */
-        .product-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 30px;
-            border: 1px solid #f0f0f0;
-        }
-
-        .img-box { width: 100%; height: 350px; overflow: hidden; position: relative; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .price-tag { 
-            position: absolute; bottom: 15px; right: 15px; background: var(--accent); 
-            color: #fff; padding: 8px 18px; border-radius: 50px; font-weight: 800; font-size: 18px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .card-body { padding: 25px; text-align: center; }
-        .card-body h2 { margin: 0 0 10px; font-size: 22px; font-weight: 700; }
-        
-        /* قسم المميزات */
-        .features { display: flex; justify-content: center; gap: 10px; margin: 15px 0 20px; flex-wrap: wrap; }
-        .features span { 
-            background: #fff5ed; color: var(--accent); padding: 6px 15px; border-radius: 50px; 
-            font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 6px;
-        }
-
-        .description { text-align: right; color: #666; line-height: 1.8; font-size: 15px; margin-bottom: 10px; }
-        .description strong { color: #000; display: block; margin-bottom: 8px; font-size: 16px; }
-
-        /* قسم الشحن والتوصيل */
-        .shipping-info {
-            background: #fafafa;
-            border-radius: 15px;
-            padding: 15px;
-            margin-top: 25px;
-            text-align: right;
-            border: 1px dashed #ddd;
-        }
-        .shipping-info p { margin: 0; color: #555; font-size: 14px; }
-        .shipping-info i { color: var(--accent); margin-right: 5px; }
-
-        /* ========================================================== */
-        /* شريط الطلب العائم الذكي والاحترافي */
-        /* ========================================================== */
-        .order-bar { 
-            position: fixed; 
-            bottom: 25px; 
-            left: 50%; 
-            transform: translateX(-50%) translateY(0); /* الحالة الظاهرة */
-            width: 90%; 
-            max-width: 450px; 
-            background: rgba(0, 0, 0, 0.9); /* أسود شفاف فخم */
-            backdrop-filter: blur(15px); /* تأثير ضبابي خلف الشريط */
-            padding: 12px; 
-            border-radius: 100px; /* حواف دائرية بالكامل */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25); 
-            z-index: 2000; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* حركة انسيابية */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-sizing: border-box;
-        }
-
-        /* حالة الإخفاء */
-        .order-bar.hidden {
-            transform: translateX(-50%) translateY(120px); /* يختفي لأسفل */
-            opacity: 0; /* ويصبح شفافاً */
-            pointer-events: none; /* ويمنع الضغط عليه وهو مختفٍ */
-        }
-
-        .bar-price { 
-            color: #fff; font-weight: 800; font-size: 17px; 
-            padding-right: 15px; flex: 1; text-align: right; 
-        }
-
-        .btn-add { 
-            flex: 2; 
-            background: var(--white); /* الزر أبيض ليكون بارزاً */
-            color: var(--primary); 
-            text-decoration: none; 
-            text-align: center; 
-            padding: 15px 25px; 
-            font-weight: 900; 
-            border-radius: 100px; 
-            border: none;
-            cursor: pointer;
-            transition: 0.3s; 
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
-        }
-        .btn-add:hover { background: #eee; transform: scale(1.03); }
-        .btn-add:active { transform: scale(0.97); }
-
-        .btn-back { 
-            background: rgba(255, 255, 255, 0.1); 
-            color: #fff; 
-            text-decoration: none; 
-            width: 45px; height: 45px;
-            border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: 0.3s;
-        }
-        .btn-back:hover { background: rgba(255, 255, 255, 0.2); }
-
-        /* التنبيه الاحترافي (Toast) */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--white);
-            color: var(--primary);
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid #f0f0f0;
-        }
+        /* التنبيه */
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #333; color: white; padding: 12px 25px; border-radius: 50px; font-weight: bold; transition: 0.5s; z-index: 2000; display: flex; align-items: center; gap: 10px; }
         .toast.show { transform: translateX(-50%) translateY(0); }
-        .toast i { color: #27ae60; font-size: 18px; }
-
-        footer { text-align: center; padding: 30px; background: #fff; margin-top: 40px; border-top: 1px solid #eee; color: #777; font-size: 12px; }
-
-        @media (max-width: 600px) {
-            .img-box { height: 250px; }
-            .order-bar { bottom: 15px; width: 94%; }
-            .btn-add { padding: 12px 20px; font-size: 13px; }
-            .shipping-info p { font-size: 13px; }
-        }
     </style>
 </head>
 <body>
 
+<div id="toast" class="toast"><i class="fas fa-check-circle" style="color:var(--success)"></i> تمت الإضافة للسلة!</div>
+
 <header>
-    <div class="logo-area">
-        <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
-        <h1>COUTURE OUM FARES</h1>
+    <div class="brand">
+        <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png">
+        <span style="font-weight: 900; font-size: 14px;">OUM FARES</span>
     </div>
-    <div class="header-actions">
-        <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000; font-size: 18px;"><i class="fab fa-facebook"></i></a>
-        <a href="cart.html" class="cart-icon">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count" id="cart-count">0</span>
-        </a>
-    </div>
+    <a href="cart.html" class="cart-link">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
 </header>
 
 <div class="container">
-    <div class="product-card">
-        <div class="img-box">
-            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg">
-            <div class="price-tag">1200 دج</div>
+    <div class="models-grid">
+        <div class="model-card">
+            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" class="model-img">
+            <div class="model-info">
+                <span class="model-name">طراشين ميتييس كلاسيك</span>
+                <span class="model-price">1200 دج</span>
+                <button class="btn-add" onclick="addToCart('طراشين ميتييس', 1200, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة للسلة</button>
+            </div>
         </div>
-        <div class="card-body">
-            <h2>طراشين ومناديل المطبخ</h2>
-            
-            <div class="features">
-                <span><i class="fas fa-check"></i> قطن ممتاز</span>
-                <span><i class="fas fa-star"></i> شغل يدوي</span>
-                <span><i class="fas fa-wash"></i> قابل للغسل</span>
-            </div>
 
-            <div class="description">
-                <strong>التفاصيل:</strong>
-                طقم متكون من 6 طراشين مع مناديل متناسقة، يتميز بألوانه الثابتة وتصميمه العصري الذي يضيف لمسة جمالية لمطبخكِ. خياطة "أم فارس" الخاصة بجودة عالية جداً.
+        <div class="model-card">
+            <img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png" class="model-img">
+            <div class="model-info">
+                <span class="model-name">طقم مناديل وردي عصري</span>
+                <span class="model-price">1500 دج</span>
+                <button class="btn-add" onclick="addToCart('مناديل وردي', 1500, 'https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png')">إضافة للسلة</button>
             </div>
+        </div>
 
-            <div class="shipping-info">
-                <p><i class="fas fa-truck-loading"></i> التوصيل متوفر لـ 58 ولاية، الدفع عند الاستلام.</p>
-                <p><i class="fas fa-calendar-check"></i> مدة التجهيز: 3-5 أيام حسب ضغط الطلبات.</p>
+        <div class="model-card">
+            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" class="model-img">
+            <div class="model-info">
+                <span class="model-name">طقم مناديل أبيض فاخر</span>
+                <span class="model-price">1300 دج</span>
+                <button class="btn-add" onclick="addToCart('مناديل أبيض', 1300, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة للسلة</button>
             </div>
         </div>
     </div>
-</div>
 
-<div id="toast" class="toast">
-    <i class="fas fa-check-circle"></i> تمت الإضافة للسلة! ✅
-</div>
+    <div class="info-card">
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-cut"></i></div>
+            <div class="info-text">
+                <h4>مدة الخياطة والتحضير</h4>
+                <p>تستغرق مدة التفصيل والخياطة من 3 إلى 7 أيام لضمان إتقان كل غرزة.</p>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-truck"></i></div>
+            <div class="info-text">
+                <h4>معلومات التوصيل</h4>
+                <p>نوفر التوصيل لـ 58 ولاية والدفع عند الاستلام.</p>
+            </div>
+        </div>
+    </div>
 
-<div class="order-bar" id="floatingBar">
-    <a href="index.html" class="btn-back"><i class="fas fa-home"></i></a>
-    <div class="bar-price">1200 دج</div>
-    <button class="btn-add" id="addToCartBtn">إضافة للطلب <i class="fas fa-cart-plus"></i></button>
+    <div class="home-navigation">
+        <a href="index.html" class="btn-back-home">
+            <i class="fas fa-arrow-right"></i> العودة للقائمة الرئيسية
+        </a>
+    </div>
 </div>
 
 <footer>
@@ -261,53 +128,18 @@
 </footer>
 
 <script>
-    // بيانات السلة
     let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
+    function updateCartCount() { document.getElementById('cart-count').innerText = cart.length; }
 
-    // تحديث عداد السلة في الهيدر
-    function updateCartCount() {
-        document.getElementById('cart-count').innerText = cart.length;
-    }
-
-    // وظيفة إضافة المنتج للسلة
-    document.getElementById('addToCartBtn').addEventListener('click', () => {
-        const product = {
-            name: "طراشين ومناديل المطبخ",
-            price: 1200,
-            img: "https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg"
-        };
-        
-        cart.push(product);
+    function addToCart(name, price, img) {
+        cart.push({ name, price, img });
         localStorage.setItem('oumFaresCart', JSON.stringify(cart));
         updateCartCount();
-        
-        // إظهار التنبيه
         const toast = document.getElementById('toast');
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 3000);
-    });
-
-    // ==========================================================
-    // الـ JavaScript السحري لإخفاء وإظهار الشريط عند السكرول
-    // ==========================================================
-    let lastScrollY = window.scrollY; // حفظ آخر موضع للتمرير
-    const floatingBar = document.getElementById('floatingBar');
-
-    window.addEventListener('scroll', () => {
-        // إذا نزلنا للأسفل، نخفي الشريط
-        if (window.scrollY > lastScrollY && window.scrollY > 100) {
-            floatingBar.classList.add('hidden');
-        } 
-        // إذا صعدنا للأعلى، نظهر الشريط
-        else {
-            floatingBar.classList.remove('hidden');
-        }
-        lastScrollY = window.scrollY; // تحديث موضع التمرير
-    });
-
-    // تحديث العداد عند فتح الصفحة
+    }
     updateCartCount();
 </script>
-
 </body>
 </html>
