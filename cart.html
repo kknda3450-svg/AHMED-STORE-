@@ -3,62 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سلة المشتريات</title>
+    <title>سلتي | Couture Oum Fares</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: sans-serif; background: #f8f9fa; padding: 20px; }
-        .item { background: #fff; padding: 15px; display: flex; align-items: center; gap: 15px; margin-bottom: 10px; border-radius: 10px; }
-        .item img { width: 60px; height: 60px; border-radius: 5px; }
+        :root {
+            --primary: #000;
+            --accent: #e67e22;
+            --bg: #fbfbfb;
+            --white: #ffffff;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg); 
+            margin: 0; 
+            color: var(--primary);
+            direction: rtl;
+        }
+
+        /* هيدر الصفحة */
+        header {
+            background: var(--white);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        header h2 { margin: 0; font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 10px; }
+
+        .container { max-width: 500px; margin: 20px auto; padding: 0 15px; }
+
+        /* شكل المنتج في السلة */
+        .cart-item {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .cart-item img { width: 70px; height: 70px; border-radius: 10px; object-fit: cover; }
+
         .item-info { flex: 1; }
-        .btn-del { color: red; border: none; background: none; cursor: pointer; font-size: 20px; }
-        .total { font-size: 20px; font-weight: bold; text-align: center; margin-top: 20px; }
-        .btn-order { display: block; width: 100%; background: #000; color: #fff; text-align: center; padding: 15px; text-decoration: none; border-radius: 10px; margin-top: 20px; }
+        .item-info h4 { margin: 0 0 5px 0; font-size: 15px; }
+        .item-info p { margin: 0; color: var(--accent); font-weight: bold; font-size: 14px; }
+
+        .btn-del {
+            background: #fff0f0;
+            color: #e74c3c;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* ملخص السعر */
+        .summary-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+        }
+
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 16px; font-weight: 600; }
+        .total-price { font-size: 22px; color: var(--accent); font-weight: 800; }
+
+        /* الأزرار الجديدة */
+        .actions { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+
+        .btn-order {
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-back {
+            background: #fff;
+            color: #555;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        .btn-order:active, .btn-back:active { transform: scale(0.98); }
+
+        /* السلة فارغة */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #bbb;
+        }
+        .empty-state i { font-size: 80px; margin-bottom: 20px; color: #eee; }
     </style>
 </head>
 <body>
 
-    <h2><i class="fas fa-shopping-cart"></i> سلتي</h2>
-    <div id="cartList"></div>
-    <div class="total" id="totalPrice">الإجمالي: 0 دج</div>
-    
-    <a href="order.html" class="btn-order">تأكيد الطلب عبر الإيميل</a>
-    <a href="index.html" style="display:block; text-align:center; margin-top:15px; color:#666;">العودة للمتجر</a>
+<header>
+    <h2><i class="fas fa-shopping-bag"></i> سلة المشتريات</h2>
+</header>
+
+<div class="container">
+    <div id="cartList">
+        </div>
+
+    <div id="summary" class="summary-card">
+        <div class="summary-row">
+            <span>إجمالي المشتريات:</span>
+            <span id="totalPrice" class="total-price">0 دج</span>
+        </div>
+        
+        <div class="actions">
+            <a href="order.html" class="btn-order">
+                تأكيد الطلبية الآن <i class="fas fa-check-circle"></i>
+            </a>
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-right"></i> العودة للمتجر
+            </a>
+        </div>
+    </div>
+</div>
 
 <script>
     function renderCart() {
         let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
         let list = document.getElementById('cartList');
+        let summary = document.getElementById('summary');
         let total = 0;
         list.innerHTML = "";
 
         if(cart.length === 0) {
-            list.innerHTML = "<p style='text-align:center;'>السلة فارغة</p>";
+            list.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-shopping-basket"></i>
+                    <h3>سلتكِ فارغة حالياً</h3>
+                    <p>الموديلات الجميلة بانتظاركِ!</p>
+                </div>
+            `;
+            summary.style.display = "none";
+            return;
         }
 
+        summary.style.display = "block";
         cart.forEach((item, index) => {
             total += item.price;
             list.innerHTML += `
-                <div class="item">
+                <div class="cart-item">
                     <img src="${item.img}">
                     <div class="item-info">
                         <h4>${item.name}</h4>
                         <p>${item.price} دج</p>
                     </div>
-                    <button class="btn-del" onclick="remove(${index})"><i class="fas fa-trash"></i></button>
+                    <button class="btn-del" onclick="remove(${index})">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                 </div>
             `;
         });
-        document.getElementById('totalPrice').innerText = "الإجمالي: " + total + " دج";
+        document.getElementById('totalPrice').innerText = total + " دج";
     }
 
     function remove(index) {
         let cart = JSON.parse(localStorage.getItem('oumFaresCart'));
-        cart.splice(index, 1); // حذف العنصر
+        cart.splice(index, 1);
         localStorage.setItem('oumFaresCart', JSON.stringify(cart));
-        renderCart(); // إعادة عرض السلة
+        renderCart();
     }
 
     renderCart();
 </script>
+
 </body>
 </html>
