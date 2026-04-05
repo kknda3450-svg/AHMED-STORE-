@@ -39,23 +39,22 @@
             color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; font-weight: bold; 
         }
 
-        /* تعديل شريط البحث ليكون متوافق مع الهاتف */
         .search-container { 
-            width: 85%; /* تقليل العرض */
-            max-width: 400px; /* تحديد أقصى عرض */
+            width: 85%; 
+            max-width: 400px; 
             margin: 20px auto 10px; 
             padding: 0; 
         }
         .search-wrapper { position: relative; width: 100%; }
         .search-wrapper input { 
             width: 100%; 
-            padding: 12px 40px 12px 12px; /* تقليل الحشو الداخلي */
-            border-radius: 25px; /* حواف أنعم */
+            padding: 12px 40px 12px 12px; 
+            border-radius: 25px; 
             border: 1px solid #ddd; 
             outline: none; 
-            font-size: 14px; /* تصغير الخط ليتناسب مع الهاتف */
+            font-size: 14px; 
             transition: 0.3s;
-            box-sizing: border-box; /* لضمان عدم خروج الإدخال عن الحواف */
+            box-sizing: border-box; 
         }
         .search-wrapper i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #888; font-size: 14px; }
 
@@ -85,8 +84,9 @@
         
         .btn-add-cart {
             background: #f8f8f8; color: #333; border: 1px solid #ddd; padding: 10px;
-            border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%; font-size: 13px;
+            border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%; font-size: 13px; transition: 0.3s;
         }
+        .btn-add-cart:hover { background: #eee; }
 
         footer { text-align: center; padding: 30px; background: #fff; margin-top: 40px; border-top: 1px solid #eee; color: #777; font-size: 12px; }
         #no-results { display: none; text-align: center; padding: 30px; font-size: 16px; color: #888; }
@@ -126,7 +126,7 @@
                 <h3>طراشين ومناديل</h3>
                 <span class="price-tag">1200 دج</span>
                 <a href="product1.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
-                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+                <button class="btn-add-cart" onclick="addToCart('طراشين ومناديل', 1200, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة للسلة 🛒</button>
             </div>
         </div>
 
@@ -136,7 +136,7 @@
                 <h3>طقم صالة</h3>
                 <span class="price-tag">4500 دج</span>
                 <a href="product2.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
-                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+                <button class="btn-add-cart" onclick="addToCart('طقم صالة', 4500, 'https://i.postimg.cc/Nf1GwGY4/images.jpg')">إضافة للسلة 🛒</button>
             </div>
         </div>
 
@@ -146,7 +146,7 @@
                 <h3>طقم أطفال</h3>
                 <span class="price-tag">2800 دج</span>
                 <a href="product3.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
-                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+                <button class="btn-add-cart" onclick="addToCart('طقم أطفال', 2800, 'https://i.postimg.cc/j241Z10G/images.jpg')">إضافة للسلة 🛒</button>
             </div>
         </div>
 
@@ -156,7 +156,7 @@
                 <h3>طقم مطبخ</h3>
                 <span class="price-tag">3500 دج</span>
                 <a href="product4.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
-                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+                <button class="btn-add-cart" onclick="addToCart('طقم مطبخ', 3500, 'https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png')">إضافة للسلة 🛒</button>
             </div>
         </div>
 
@@ -166,7 +166,7 @@
                 <h3>طقم بيبي</h3>
                 <span class="price-tag">3200 دج</span>
                 <a href="product5.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
-                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+                <button class="btn-add-cart" onclick="addToCart('طقم بيبي', 3200, 'https://i.postimg.cc/2SGzVH1q/images.jpg')">إضافة للسلة 🛒</button>
             </div>
         </div>
 
@@ -176,7 +176,7 @@
                 <h3>طقم نزهة</h3>
                 <span class="price-tag">2500 دج</span>
                 <a href="product6.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
-                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+                <button class="btn-add-cart" onclick="addToCart('طقم نزهة', 2500, 'https://i.postimg.cc/Njdcg5nr/images.jpg')">إضافة للسلة 🛒</button>
             </div>
         </div>
 
@@ -186,7 +186,7 @@
                 <h3>طقم عرائس</h3>
                 <span class="price-tag">8500 دج</span>
                 <a href="product7.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
-                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+                <button class="btn-add-cart" onclick="addToCart('طقم عرائس', 8500, 'https://i.postimg.cc/gk45h1Kw/images.jpg')">إضافة للسلة 🛒</button>
             </div>
         </div>
 
@@ -198,11 +198,19 @@
 </footer>
 
 <script>
-    let count = 0;
-    function addToCart() {
-        count++;
-        document.getElementById('cart-count').innerText = count;
-        alert("تمت الإضافة للسلة! ✅");
+    // نظام السلة الحقيقي
+    let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+    function addToCart(name, price, img) {
+        const product = { name, price, img };
+        cart.push(product);
+        localStorage.setItem('oumFaresCart', JSON.stringify(cart));
+        updateCartCount();
+        alert("تمت إضافة الموديل للسلة! ✅");
     }
 
     function searchProducts() {
@@ -220,6 +228,9 @@
         }
         document.getElementById('no-results').style.display = found ? "none" : "block";
     }
+
+    // تحديث العداد عند التحميل
+    updateCartCount();
 </script>
 </body>
-</html>
+                                 </html>
