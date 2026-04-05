@@ -8,15 +8,16 @@
     <style>
         :root {
             --primary: #000;
-            --accent: #e67e22; /* لون السعر */
+            --accent: #e67e22;
             --bg-light: #fbfbfb;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-light); color: #333; }
         
+        /* الهيدر المطور */
         header { 
-            padding: 15px 5%; 
+            padding: 10px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -28,84 +29,61 @@
             z-index: 1000; 
         }
         
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { width: 65px; height: 65px; border-radius: 50%; border: 1.5px solid var(--primary); object-fit: cover; }
-        .logo-area h1 { font-size: 18px; margin: 0; letter-spacing: 1px; }
-        
-        .container { padding: 40px 5%; max-width: 1200px; margin: auto; }
-        
-        /* تحسين شبكة العرض */
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { width: 55px; height: 55px; border-radius: 50%; border: 1.5px solid var(--primary); object-fit: cover; }
+        .logo-area h1 { font-size: 16px; margin: 0; letter-spacing: 1px; }
+
+        /* أيقونات السلة والفيسبوك */
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .cart-icon { position: relative; font-size: 22px; color: var(--primary); cursor: pointer; text-decoration: none; }
+        .cart-count { 
+            position: absolute; top: -8px; right: -10px; background: var(--accent); 
+            color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 50%; font-weight: bold; 
+        }
+
+        /* شريط البحث */
+        .search-container { max-width: 600px; margin: 25px auto 10px; padding: 0 5%; }
+        .search-wrapper { position: relative; width: 100%; }
+        .search-wrapper input { 
+            width: 100%; padding: 15px 45px 15px 15px; border-radius: 50px; 
+            border: 1.5px solid #eee; outline: none; font-size: 16px; transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .search-wrapper input:focus { border-color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        .search-wrapper i { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: #888; }
+
+        .container { padding: 20px 5%; max-width: 1200px; margin: auto; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
-        /* تصميم البطاقة الجديد */
         .card { 
-            background: #fff; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            transition: all 0.4s ease; 
-            box-shadow: var(--card-shadow);
-            border: 1px solid #f0f0f0;
-            display: flex;
-            flex-direction: column;
+            background: #fff; border-radius: 15px; overflow: hidden; transition: 0.4s; 
+            box-shadow: var(--card-shadow); border: 1px solid #f0f0f0; display: flex; flex-direction: column;
         }
-        
-        .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
-        }
-        
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .img-box { position: relative; width: 100%; height: 300px; overflow: hidden; }
         .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .card:hover img { transform: scale(1.1); }
-
         .card-body { padding: 20px; text-align: center; }
-        .card h3 { margin: 0 0 10px; font-size: 19px; font-weight: 700; color: var(--primary); }
+        .card h3 { margin: 0 0 10px; font-size: 19px; font-weight: 700; }
         
-        /* السعر بشكل عصري */
         .price-tag { 
-            display: inline-block; 
-            color: var(--accent); 
-            font-weight: 800; 
-            font-size: 18px; 
-            margin-bottom: 15px;
-            padding: 5px 15px;
-            background: #fff5ed;
-            border-radius: 50px;
+            display: inline-block; color: var(--accent); font-weight: 800; font-size: 18px; 
+            margin-bottom: 15px; padding: 5px 15px; background: #fff5ed; border-radius: 50px;
         }
         
-        /* الأزرار الحديثة */
         .btn-view { 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--primary); 
-            color: #fff; 
-            text-decoration: none; 
-            padding: 14px; 
-            font-weight: bold; 
-            border-radius: 10px;
-            transition: 0.3s;
-            font-size: 15px;
+            display: flex; align-items: center; justify-content: center; gap: 10px; 
+            background: var(--primary); color: #fff; text-decoration: none; padding: 14px; 
+            font-weight: bold; border-radius: 10px; transition: 0.3s; font-size: 14px;
         }
-        
-        .btn-view i { transition: 0.3s; }
         .btn-view:hover { background: #333; }
-        .btn-view:hover i { transform: translateX(-5px); } /* حركة خفيفة للسهم */
-        
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            background: #fff; 
-            margin-top: 60px; 
-            border-top: 1px solid #eee;
-            font-size: 14px;
-            color: #777;
-        }
 
-        /* لمسة جمالية للهواتف */
+        footer { text-align: center; padding: 40px; background: #fff; margin-top: 60px; border-top: 1px solid #eee; color: #777; }
+
+        /* رسالة "لا توجد نتائج" */
+        #no-results { display: none; text-align: center; padding: 50px; font-size: 18px; color: #888; }
+
         @media (max-width: 600px) {
-            .grid { gap: 20px; }
+            .logo-area h1 { font-size: 14px; }
             .card img { height: 250px; }
         }
     </style>
@@ -117,18 +95,31 @@
         <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
         <div>
             <h1>COUTURE OUM FARES</h1>
-            <small style="color: #888;">أصالة وإبداع أم فارس</small>
         </div>
     </div>
-    <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000; font-size: 26px;"><i class="fab fa-facebook"></i></a>
+    
+    <div class="header-actions">
+        <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000; font-size: 22px;"><i class="fab fa-facebook"></i></a>
+        <a href="order.html" class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </a>
+    </div>
 </header>
 
+<div class="search-container">
+    <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="ابحثي عن موديل (طقم صالة، طراشين...)" onkeyup="searchProducts()">
+    </div>
+</div>
+
 <div class="container">
-    <div class="grid">
-        <div class="card">
-            <div class="img-box">
-                <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" alt="طراشين">
-            </div>
+    <div id="no-results">عذراً، لم نجد ما تبحثين عنه.. ✨</div>
+    
+    <div class="grid" id="productGrid">
+        <div class="card" data-name="طراشين ومناديل">
+            <div class="img-box"><img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" alt="طراشين"></div>
             <div class="card-body">
                 <h3>طراشين ومناديل</h3>
                 <span class="price-tag">1200 دج</span>
@@ -136,10 +127,8 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="img-box">
-                <img src="https://i.postimg.cc/Nf1GwGY4/images.jpg" alt="طقم صالة">
-            </div>
+        <div class="card" data-name="طقم صالة">
+            <div class="img-box"><img src="https://i.postimg.cc/Nf1GwGY4/images.jpg" alt="طقم صالة"></div>
             <div class="card-body">
                 <h3>طقم صالة</h3>
                 <span class="price-tag">4500 دج</span>
@@ -147,10 +136,8 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="img-box">
-                <img src="https://i.postimg.cc/j241Z10G/images.jpg" alt="طقم أطفال">
-            </div>
+        <div class="card" data-name="طقم أطفال">
+            <div class="img-box"><img src="https://i.postimg.cc/j241Z10G/images.jpg" alt="طقم أطفال"></div>
             <div class="card-body">
                 <h3>طقم أطفال</h3>
                 <span class="price-tag">2800 دج</span>
@@ -158,10 +145,8 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="img-box">
-                <img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png" alt="طقم مطبخ">
-            </div>
+        <div class="card" data-name="طقم مطبخ">
+            <div class="img-box"><img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png" alt="طقم مطبخ"></div>
             <div class="card-body">
                 <h3>طقم مطبخ</h3>
                 <span class="price-tag">3500 دج</span>
@@ -169,10 +154,8 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="img-box">
-                <img src="https://i.postimg.cc/2SGzVH1q/images.jpg" alt="طقم بيبي">
-            </div>
+        <div class="card" data-name="طقم بيبي">
+            <div class="img-box"><img src="https://i.postimg.cc/2SGzVH1q/images.jpg" alt="طقم بيبي"></div>
             <div class="card-body">
                 <h3>طقم بيبي</h3>
                 <span class="price-tag">3200 دج</span>
@@ -180,10 +163,8 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="img-box">
-                <img src="https://i.postimg.cc/Njdcg5nr/images.jpg" alt="طقم نزهة">
-            </div>
+        <div class="card" data-name="طقم نزهة">
+            <div class="img-box"><img src="https://i.postimg.cc/Njdcg5nr/images.jpg" alt="طقم نزهة"></div>
             <div class="card-body">
                 <h3>طقم نزهة</h3>
                 <span class="price-tag">2500 دج</span>
@@ -191,10 +172,8 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="img-box">
-                <img src="https://i.postimg.cc/gk45h1Kw/images.jpg" alt="طقم عرائس">
-            </div>
+        <div class="card" data-name="طقم عرائس">
+            <div class="img-box"><img src="https://i.postimg.cc/gk45h1Kw/images.jpg" alt="طقم عرائس"></div>
             <div class="card-body">
                 <h3>طقم عرائس</h3>
                 <span class="price-tag">8500 دج</span>
@@ -209,5 +188,31 @@
     <p><i class="fas fa-map-marker-alt"></i> الجلفة - بلدية الزعفران</p>
 </footer>
 
+<script>
+    // وظيفة البحث الذكي
+    function searchProducts() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('card');
+        let grid = document.getElementById('productGrid');
+        let noResults = document.getElementById('no-results');
+        let found = false;
+
+        for (let i = 0; i < cards.length; i++) {
+            let name = cards[i].getAttribute('data-name').toLowerCase();
+            if (name.includes(input)) {
+                cards[i].style.display = "flex";
+                found = true;
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+
+        noResults.style.display = found ? "none" : "block";
+    }
+
+    // ملاحظة: بما أن المتجر يعتمد على "استمارة طلب"، أيقونة السلة هنا 
+    // تأخذ المستخدم مباشرة لصفحة الطلب لملء بياناته.
+</script>
+
 </body>
-</html>
+    </html>
