@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موديلات أم فارس | Oum Fares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --accent: #000; --orange: #e67e22; --bg: #f4f4f4; --success: #27ae60; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
+        
+        /* الهيدر */
+        header { 
+            padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; 
+            background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000;
+        }
+        .brand { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 14px; }
+        .brand img { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #000; }
+        .cart-link { position: relative; color: #000; text-decoration: none; font-size: 20px; }
+        .cart-count { position: absolute; top: -5px; right: -8px; background: var(--orange); color: #fff; font-size: 10px; padding: 2px 5px; border-radius: 50%; }
+
+        .container { padding: 20px; max-width: 800px; margin: auto; }
+
+        /* شبكة الـ 3 موديلات */
+        .models-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 30px; }
+        .card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .card-img { width: 100%; height: 250px; object-fit: cover; }
+        .card-info { padding: 20px; text-align: center; }
+        .card-info h3 { margin: 0 0 10px; font-size: 18px; }
+        .price { color: var(--orange); font-weight: 800; font-size: 20px; display: block; margin-bottom: 15px; }
+        
+        .btn-add { 
+            background: var(--accent); color: #fff; border: none; width: 100%; padding: 12px; 
+            border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .btn-add:active { transform: scale(0.98); background: #333; }
+
+        /* معلومات التوصيل والخياطة */
+        .details-section { background: #fff; border-radius: 20px; padding: 25px; margin-top: 20px; border: 1px solid #eee; }
+        .detail-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .detail-item i { color: var(--orange); font-size: 20px; }
+        .detail-item h4 { margin: 0 0 5px; font-size: 15px; }
+        .detail-item p { margin: 0; color: #666; font-size: 13px; line-height: 1.6; }
+
+        /* زر العودة للرئيسية */
+        .nav-footer { text-align: center; margin: 40px 0; }
+        .btn-home { 
+            text-decoration: none; color: #000; border: 2px solid #000; padding: 12px 40px; 
+            border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s;
+        }
+        .btn-home:hover { background: #000; color: #fff; }
+
+        /* التنبيه (Toast) - يظهر فقط عند الإضافة */
+        .toast {
+            position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%);
+            background: #222; color: #fff; padding: 12px 30px; border-radius: 50px;
+            font-weight: bold; transition: 0.5s; z-index: 2000; display: flex; align-items: center; gap: 10px;
+        }
+        .toast.show { bottom: 30px; }
+
+        /* الحقوق المحفوظة */
+        footer { text-align: center; padding: 20px; color: #999; font-size: 11px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<div id="toast" class="toast"><i class="fas fa-check-circle" style="color:var(--success)"></i> تمت الإضافة للسلة!</div>
+
+<header>
+    <div class="brand">
+        <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png">
+        <span>OUM FARES</span>
+    </div>
+    <a href="cart.html" class="cart-link">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </a>
+</header>
+
+<div class="container">
+    <div class="models-grid">
+        <div class="card">
+            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" class="card-img">
+            <div class="card-info">
+                <h3>طراشين ميتييس كلاسيك</h3>
+                <span class="price">1200 دج</span>
+                <button class="btn-add" onclick="addToCart('طراشين ميتييس', 1200, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة للسلة</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png" class="card-img">
+            <div class="card-info">
+                <h3>طقم مناديل وردي</h3>
+                <span class="price">1500 دج</span>
+                <button class="btn-add" onclick="addToCart('مناديل وردي', 1500, 'https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png')">إضافة للسلة</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" class="card-img">
+            <div class="card-info">
+                <h3>طقم مائدة ملكي</h3>
+                <span class="price">1800 دج</span>
+                <button class="btn-add" onclick="addToCart('طقم ملكي', 1800, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة للسلة</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-section">
+        <div class="detail-item">
+            <i class="fas fa-magic"></i>
+            <div>
+                <h4>مدة الخياطة والإنجاز</h4>
+                <p>تستغرق الخياطة من 3 إلى 7 أيام لضمان جودة عالية في كل غرزة.</p>
+            </div>
+        </div>
+        <div class="detail-item">
+            <i class="fas fa-truck-fast"></i>
+            <div>
+                <h4>التوصيل لـ 58 ولاية</h4>
+                <p>نصل إليكِ أينما كنتِ مع الدفع عند الاستلام.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-footer">
+        <a href="index.html" class="btn-home">العودة للرئيسية</a>
+    </div>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة لورشة أم فارس &copy; 2026</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
+    function updateCartCount() { document.getElementById('cart-count').innerText = cart.length; }
+
+    function addToCart(name, price, img) {
+        cart.push({ name, price, img });
+        localStorage.setItem('oumFaresCart', JSON.stringify(cart));
+        updateCartCount();
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 3000);
+    }
+    updateCartCount();
+</script>
+</body>
+</html>
