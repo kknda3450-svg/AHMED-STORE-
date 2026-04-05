@@ -3,62 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سلة المشتريات</title>
+    <title>Couture Oum Fares | متجر خياطة أم فارس</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: sans-serif; background: #f8f9fa; padding: 20px; }
-        .item { background: #fff; padding: 15px; display: flex; align-items: center; gap: 15px; margin-bottom: 10px; border-radius: 10px; }
-        .item img { width: 60px; height: 60px; border-radius: 5px; }
-        .item-info { flex: 1; }
-        .btn-del { color: red; border: none; background: none; cursor: pointer; font-size: 20px; }
-        .total { font-size: 20px; font-weight: bold; text-align: center; margin-top: 20px; }
-        .btn-order { display: block; width: 100%; background: #000; color: #fff; text-align: center; padding: 15px; text-decoration: none; border-radius: 10px; margin-top: 20px; }
+        :root {
+            --primary: #000;
+            --accent: #e67e22;
+            --bg-light: #fbfbfb;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-light); color: #333; padding-bottom: 50px; }
+        
+        header { 
+            padding: 10px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid #eee; 
+            position: sticky; 
+            top: 0; 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            z-index: 1000; 
+        }
+        
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { width: 55px; height: 55px; border-radius: 50%; border: 1.5px solid var(--primary); object-fit: cover; }
+        .logo-area h1 { font-size: 16px; margin: 0; letter-spacing: 1px; }
+
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .cart-icon { position: relative; font-size: 22px; color: var(--primary); text-decoration: none; }
+        .cart-count { 
+            position: absolute; top: -8px; right: -10px; background: var(--accent); 
+            color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 50%; font-weight: bold; 
+        }
+
+        .search-container { max-width: 600px; margin: 25px auto 10px; padding: 0 5%; }
+        .search-wrapper { position: relative; width: 100%; }
+        .search-wrapper input { 
+            width: 100%; padding: 15px 45px 15px 15px; border-radius: 50px; 
+            border: 1.5px solid #eee; outline: none; font-size: 16px; transition: 0.3s;
+        }
+        .search-wrapper i { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: #888; }
+
+        .container { padding: 20px 5%; max-width: 1200px; margin: auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .card { 
+            background: #fff; border-radius: 15px; overflow: hidden; transition: 0.4s; 
+            box-shadow: var(--card-shadow); border: 1px solid #f0f0f0; display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .img-box { width: 100%; height: 300px; overflow: hidden; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        
+        .card-body { padding: 20px; text-align: center; }
+        .card h3 { margin: 0 0 10px; font-size: 19px; font-weight: 700; }
+        
+        .price-tag { 
+            display: inline-block; color: var(--accent); font-weight: 800; font-size: 18px; 
+            margin-bottom: 15px; padding: 5px 15px; background: #fff5ed; border-radius: 50px;
+        }
+        
+        .btn-view { 
+            display: flex; align-items: center; justify-content: center; gap: 10px; 
+            background: var(--primary); color: #fff; text-decoration: none; padding: 14px; 
+            font-weight: bold; border-radius: 10px; transition: 0.3s; font-size: 14px; margin-bottom: 8px;
+        }
+        
+        .btn-add-cart {
+            background: #f8f8f8; color: #333; border: 1px solid #ddd; padding: 10px;
+            border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s;
+        }
+        .btn-add-cart:hover { background: #eee; }
+
+        footer { text-align: center; padding: 40px; background: #fff; margin-top: 60px; border-top: 1px solid #eee; color: #777; }
+        #no-results { display: none; text-align: center; padding: 50px; font-size: 18px; color: #888; }
     </style>
 </head>
 <body>
 
-    <h2><i class="fas fa-shopping-cart"></i> سلتي</h2>
-    <div id="cartList"></div>
-    <div class="total" id="totalPrice">الإجمالي: 0 دج</div>
+<header>
+    <div class="logo-area">
+        <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
+        <h1>COUTURE OUM FARES</h1>
+    </div>
     
-    <a href="order.html" class="btn-order">تأكيد الطلب عبر الإيميل</a>
-    <a href="index.html" style="display:block; text-align:center; margin-top:15px; color:#666;">العودة للمتجر</a>
+    <div class="header-actions">
+        <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000; font-size: 22px;"><i class="fab fa-facebook"></i></a>
+        <a href="cart.html" class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+<div class="search-container">
+    <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="ابحثي عن موديل..." onkeyup="searchProducts()">
+    </div>
+</div>
+
+<div class="container">
+    <div id="no-results">لم نجد موديلات بهذا الاسم.. ✨</div>
+    <div class="grid" id="productGrid">
+        
+        <div class="card" data-name="طراشين ومناديل">
+            <div class="img-box"><img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg"></div>
+            <div class="card-body">
+                <h3>طراشين ومناديل</h3>
+                <span class="price-tag">1200 دج</span>
+                <a href="product1.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم صالة">
+            <div class="img-box"><img src="https://i.postimg.cc/Nf1GwGY4/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم صالة</h3>
+                <span class="price-tag">4500 دج</span>
+                <a href="product2.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم أطفال">
+            <div class="img-box"><img src="https://i.postimg.cc/j241Z10G/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم أطفال</h3>
+                <span class="price-tag">2800 دج</span>
+                <a href="product3.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم مطبخ">
+            <div class="img-box"><img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png"></div>
+            <div class="card-body">
+                <h3>طقم مطبخ</h3>
+                <span class="price-tag">3500 دج</span>
+                <a href="product4.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم بيبي">
+            <div class="img-box"><img src="https://i.postimg.cc/2SGzVH1q/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم بيبي</h3>
+                <span class="price-tag">3200 دج</span>
+                <a href="product5.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم نزهة">
+            <div class="img-box"><img src="https://i.postimg.cc/Njdcg5nr/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم نزهة</h3>
+                <span class="price-tag">2500 دج</span>
+                <a href="product6.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم عرائس">
+            <div class="img-box"><img src="https://i.postimg.cc/gk45h1Kw/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم عرائس</h3>
+                <span class="price-tag">8500 دج</span>
+                <a href="product7.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة لورشة أم فارس &copy; 2026</p>
+    <p>الجلفة - الزعفران</p>
+</footer>
 
 <script>
-    function renderCart() {
-        let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
-        let list = document.getElementById('cartList');
-        let total = 0;
-        list.innerHTML = "";
+    let count = 0;
+    function addToCart() {
+        count++;
+        document.getElementById('cart-count').innerText = count;
+        alert("تمت الإضافة للسلة بنجاح! ✅");
+    }
 
-        if(cart.length === 0) {
-            list.innerHTML = "<p style='text-align:center;'>السلة فارغة</p>";
+    function searchProducts() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('card');
+        let found = false;
+        for (let i = 0; i < cards.length; i++) {
+            let name = cards[i].getAttribute('data-name').toLowerCase();
+            if (name.includes(input)) {
+                cards[i].style.display = "flex";
+                found = true;
+            } else {
+                cards[i].style.display = "none";
+            }
         }
-
-        cart.forEach((item, index) => {
-            total += item.price;
-            list.innerHTML += `
-                <div class="item">
-                    <img src="${item.img}">
-                    <div class="item-info">
-                        <h4>${item.name}</h4>
-                        <p>${item.price} دج</p>
-                    </div>
-                    <button class="btn-del" onclick="remove(${index})"><i class="fas fa-trash"></i></button>
-                </div>
-            `;
-        });
-        document.getElementById('totalPrice').innerText = "الإجمالي: " + total + " دج";
+        document.getElementById('no-results').style.display = found ? "none" : "block";
     }
-
-    function remove(index) {
-        let cart = JSON.parse(localStorage.getItem('oumFaresCart'));
-        cart.splice(index, 1); // حذف العنصر
-        localStorage.setItem('oumFaresCart', JSON.stringify(cart));
-        renderCart(); // إعادة عرض السلة
-    }
-
-    renderCart();
 </script>
 </body>
-</html>
+                    </html>
