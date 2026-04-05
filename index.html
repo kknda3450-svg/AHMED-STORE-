@@ -3,109 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استكشاف الموديلات | Couture Oum Fares</title>
+    <title>Couture Oum Fares | متجر خياطة أم فارس</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --accent: #000; --gray: #f8f8f8; --price-color: #e67e22; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: #fff; color: #000; padding-bottom: 120px; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; color: #000; }
+        header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; position: sticky; top: 0; background: #fff; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-area img { width: 75px; height: 75px; border-radius: 50%; border: 1px solid #000; object-fit: cover; }
         
-        header { padding: 15px; border-bottom: 1px solid #eee; text-align: center; background: #fff; position: sticky; top: 0; z-index: 1000; }
-        header img { width: 65px; height: 65px; border-radius: 50%; border: 1.5px solid var(--accent); object-fit: cover; }
+        .container { padding: 20px 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { border: 1px solid #eee; background: #fff; text-align: center; padding: 10px; transition: 0.3s; border-radius: 8px; }
+        .card:hover { border-color: #000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 280px; object-fit: cover; background: #f0f0f0; border-radius: 5px; }
+
+        .card h3 { margin: 15px 0 5px; font-size: 18px; }
         
-        .container { max-width: 550px; margin: auto; padding: 20px; }
-        
-        /* معرض الصور مع السعر */
-        .gallery-container { position: relative; margin-bottom: 25px; }
-        .price-badge { 
-            position: absolute; top: 15px; right: 15px; background: var(--accent); color: #fff; 
-            padding: 8px 15px; border-radius: 50px; font-weight: bold; font-size: 16px; z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        /* تنسيق السعر الجديد */
+        .price-tag { 
+            display: block; 
+            color: #e67e22; 
+            font-weight: bold; 
+            font-size: 17px; 
+            margin-bottom: 10px; 
         }
-
-        .main-img-wrapper { width: 100%; height: 420px; overflow: hidden; border-radius: 20px; border: 1px solid #f0f0f0; margin-bottom: 12px; }
-        .main-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
         
-        .thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .thumb-img { width: 100%; height: 90px; object-fit: cover; border-radius: 12px; border: 2.5px solid transparent; cursor: pointer; transition: 0.3s; opacity: 0.6; }
-        .thumb-img.active { opacity: 1; border-color: var(--accent); }
-
-        /* تفاصيل المنتج */
-        .info { text-align: center; padding-top: 10px; }
-        .info h1 { font-size: 26px; margin: 5px 0; font-weight: 800; }
+        .btn-view { display: block; background: #000; color: #fff; text-decoration: none; padding: 12px; font-weight: bold; margin-top: 10px; border-radius: 5px; }
+        .btn-view:hover { background: #333; }
         
-        /* عرض السعر تحت العنوان */
-        .product-price { font-size: 24px; color: var(--price-color); font-weight: 800; margin-bottom: 15px; display: block; }
-        .product-price span { font-size: 14px; color: #888; font-weight: normal; }
-
-        .info p { color: #555; line-height: 1.8; font-size: 16px; margin-bottom: 25px; }
-
-        .features { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; font-size: 13px; color: #777; }
-        .features span { background: var(--gray); padding: 5px 12px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
-
-        /* الأزرار العصرية */
-        .order-nav { 
-            position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); width: 85%; max-width: 450px;
-            display: flex; gap: 12px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px);
-            padding: 12px; border-radius: 100px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); z-index: 1000; border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-        .btn-order { flex: 3; background: var(--accent); color: #fff; text-decoration: none; text-align: center; padding: 16px; font-weight: 800; border-radius: 100px; }
-        .btn-back { flex: 1; background: #fff; color: #000; text-decoration: none; text-align: center; padding: 16px; font-weight: bold; border-radius: 100px; border: 1px solid #eee; }
-
-        @media (max-width: 500px) { .main-img-wrapper { height: 320px; } }
+        footer { text-align: center; padding: 30px; background: #f4f4f4; margin-top: 40px; font-size: 14px; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
-    <div style="font-weight: 800; margin-top: 8px; font-size: 14px;">COUTURE OUM FARES</div>
+    <div class="logo-area">
+        <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
+        <div>
+            <h1 style="font-size: 18px; margin: 0;">COUTURE OUM FARES</h1>
+            <small>أصالة وإبداع أم فارس</small>
+        </div>
+    </div>
+    <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000; font-size: 24px;"><i class="fab fa-facebook"></i></a>
 </header>
 
 <div class="container">
-    <div class="gallery-container">
-        <div class="price-badge">1800 دج</div>
-        
-        <div class="main-img-wrapper">
-            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" id="mainDisplay" alt="Product Main">
+    <div class="grid">
+        <div class="card">
+            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" alt="طراشين">
+            <h3>طراشين ومناديل</h3>
+            <span class="price-tag">1200 دج</span>
+            <a href="product1.html" class="btn-view">استكشاف الموديلات ✨</a>
         </div>
 
-        <div class="thumb-grid">
-            <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" class="thumb-img active" onclick="changeImage(this)" alt="Detail 1">
-            <img src="رابط_الصورة_الثانية" class="thumb-img" onclick="changeImage(this)" alt="Detail 2">
-            <img src="رابط_الصورة_الثالثة" class="thumb-img" onclick="changeImage(this)" alt="Detail 3">
-        </div>
-    </div>
-
-    <div class="info">
-        <h1>طراشين ومناديل</h1>
-        <div class="product-price">1800 دج <span>(سعر الطقم الكامل)</span></div>
-        
-        <div class="features">
-            <span><i class="fas fa-magic"></i> إتقان تام</span>
-            <span><i class="fas fa-gem"></i> قماش ملكي</span>
+        <div class="card">
+            <img src="https://i.postimg.cc/Nf1GwGY4/images.jpg" alt="طقم صالة">
+            <h3>طقم صالة</h3>
+            <span class="price-tag">4500 دج</span>
+            <a href="product2.html" class="btn-view">استكشاف الموديلات ✨</a>
         </div>
 
-        <p>
-            نقدم لكِ تشكيلة من الطراشين والمناديل الراقية، مصنوعة من أجود أنواع الأقمشة بخياطة يدوية دقيقة من ورشة أم فارس. 
-        </p>
+        <div class="card">
+            <img src="https://i.postimg.cc/j241Z10G/images.jpg" alt="طقم أطفال">
+            <h3>طقم أطفال</h3>
+            <span class="price-tag">2800 دج</span>
+            <a href="product3.html" class="btn-view">استكشاف الموديلات ✨</a>
+        </div>
+
+        <div class="card">
+            <img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png" alt="طقم مطبخ">
+            <h3>طقم مطبخ</h3>
+            <span class="price-tag">3500 دج</span>
+            <a href="product4.html" class="btn-view">استكشاف الموديلات ✨</a>
+        </div>
+
+        <div class="card">
+            <img src="https://i.postimg.cc/2SGzVH1q/images.jpg" alt="طقم بيبي">
+            <h3>طقم بيبي</h3>
+            <span class="price-tag">3200 دج</span>
+            <a href="product5.html" class="btn-view">استكشاف الموديلات ✨</a>
+        </div>
+
+        <div class="card">
+            <img src="https://i.postimg.cc/Njdcg5nr/images.jpg" alt="طقم نزهة">
+            <h3>طقم نزهة</h3>
+            <span class="price-tag">2500 دج</span>
+            <a href="product6.html" class="btn-view">استكشاف الموديلات ✨</a>
+        </div>
+
+        <div class="card">
+            <img src="https://i.postimg.cc/gk45h1Kw/images.jpg" alt="طقم عرائس">
+            <h3>طقم عرائس</h3>
+            <span class="price-tag">8500 دج</span>
+            <a href="product7.html" class="btn-view">استكشاف الموديلات ✨</a>
+        </div>
     </div>
 </div>
 
-<div class="order-nav">
-    <a href="index.html" class="btn-back"><i class="fas fa-arrow-right"></i></a>
-    <a href="order.html" class="btn-order">اطلبي الآن 🛍️</a>
-</div>
-
-<script>
-    function changeImage(element) {
-        document.getElementById('mainDisplay').src = element.src;
-        let thumbs = document.getElementsByClassName('thumb-img');
-        for (let i = 0; i < thumbs.length; i++) {
-            thumbs[i].classList.remove('active');
-        }
-        element.classList.add('active');
-    }
-</script>
+<footer>
+    <p>جميع الحقوق محفوظة لورشة أم فارس &copy; 2026</p>
+    <p>الجلفة - بلدية الزعفران</p>
+</footer>
 
 </body>
 </html>
