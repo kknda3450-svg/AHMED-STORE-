@@ -3,53 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أنواع الطراشين | Couture Oum Fares</title>
+    <title>موديلات حصرية | Couture Oum Fares</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --accent: #000; --orange: #e67e22; --bg: #fdfdfd; --success: #27ae60; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--bg); color: #333; padding-bottom: 50px; }
+        :root { --accent: #000; --orange: #e67e22; --bg: #f8f9fa; --success: #27ae60; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--bg); color: #333; padding-bottom: 30px; }
         
+        /* الهيدر */
         header { 
-            padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; 
-            border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 1000; 
+            padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
-        header img { width: 45px; height: 45px; border-radius: 50%; border: 1px solid #000; object-fit: cover; }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand img { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #000; }
         .cart-link { position: relative; font-size: 22px; color: #000; text-decoration: none; }
-        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--orange); color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 50%; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--orange); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; font-weight: bold; }
 
-        .container { padding: 20px 5%; max-width: 800px; margin: auto; }
-        .page-title { text-align: center; margin-bottom: 30px; }
-        .page-title h1 { font-size: 24px; margin-bottom: 5px; }
-        .page-title p { color: #777; font-size: 14px; }
+        .container { padding: 20px 5%; max-width: 900px; margin: auto; }
+        
+        .section-title { text-align: center; margin-bottom: 25px; }
+        .section-title h1 { font-size: 22px; color: var(--accent); margin-bottom: 5px; }
+        .section-title .line { width: 50px; height: 3px; background: var(--orange); margin: auto; border-radius: 2px; }
 
-        /* قسم الموديلات */
-        .models-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 40px; }
-        .model-item { background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .model-img { width: 100%; height: 180px; object-fit: cover; }
+        /* شبكة الموديلات الـ 5 */
+        .models-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px; 
+            margin-bottom: 30px; 
+        }
+        .model-card { 
+            background: #fff; border-radius: 18px; overflow: hidden; 
+            border: 1px solid #f0f0f0; transition: 0.3s;
+            position: relative;
+        }
+        .badge { 
+            position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.9); 
+            padding: 4px 8px; border-radius: 8px; font-size: 10px; font-weight: bold; color: var(--success);
+        }
+        .model-img { width: 100%; height: 160px; object-fit: cover; }
         .model-info { padding: 12px; text-align: center; }
-        .model-name { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; }
-        .model-price { color: var(--orange); font-weight: 800; font-size: 15px; display: block; margin-bottom: 10px; }
-        .btn-add-small { 
-            background: #000; color: #fff; border: none; width: 100%; padding: 8px; 
-            border-radius: 8px; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px;
+        .model-name { font-weight: bold; font-size: 13px; display: block; margin-bottom: 6px; height: 32px; overflow: hidden; }
+        .model-price { color: var(--orange); font-weight: 800; font-size: 15px; display: block; margin-bottom: 12px; }
+        
+        .btn-add { 
+            background: var(--accent); color: #fff; border: none; width: 100%; padding: 10px; 
+            border-radius: 12px; font-size: 12px; cursor: pointer; font-weight: bold;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
         }
 
-        /* قسم الوصف والشحن */
-        .details-box { background: #fff; border-radius: 20px; padding: 20px; border: 1px solid #eee; margin-top: 20px; }
-        .detail-row { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
-        .detail-row i { color: var(--orange); font-size: 20px; margin-top: 3px; }
-        .detail-text h4 { margin: 0 0 5px; font-size: 16px; }
-        .detail-text p { margin: 0; color: #666; font-size: 13px; line-height: 1.6; }
+        /* صندوق المعلومات المميز */
+        .info-card { 
+            background: #fff; border-radius: 25px; padding: 25px; 
+            border: 1px solid #eee; margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .info-item { display: flex; gap: 15px; margin-bottom: 20px; }
+        .info-item:last-child { margin-bottom: 0; }
+        .info-icon { 
+            width: 45px; height: 45px; background: #fff5ed; color: var(--orange); 
+            border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 20px;
+            flex-shrink: 0;
+        }
+        .info-text h4 { margin: 0 0 5px; font-size: 15px; font-weight: 800; }
+        .info-text p { margin: 0; color: #666; font-size: 12px; line-height: 1.6; }
 
-        /* التنبيه */
+        /* التنبيه الاحترافي */
         .toast {
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
             background: #333; color: white; padding: 12px 25px; border-radius: 50px;
-            font-weight: bold; transition: 0.5s; z-index: 2000; display: flex; align-items: center; gap: 10px;
+            font-weight: bold; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 2000; 
+            display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
-        .btn-home { display: block; text-align: center; text-decoration: none; color: #777; margin-top: 30px; font-size: 14px; }
+        .back-link { display: block; text-align: center; color: #888; text-decoration: none; margin-top: 30px; font-size: 13px; font-weight: bold; }
+
+        @media (max-width: 400px) {
+            .models-grid { grid-template-columns: 1fr; } /* موديل واحد في السطر للهواتف الصغيرة جداً */
+            .model-img { height: 200px; }
+        }
     </style>
 </head>
 <body>
@@ -57,9 +91,9 @@
 <div id="toast" class="toast"><i class="fas fa-check-circle" style="color:var(--success)"></i> تمت الإضافة للسلة!</div>
 
 <header>
-    <div style="display: flex; align-items: center; gap: 10px;">
+    <div class="brand">
         <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png">
-        <span style="font-weight: 800;">OUM FARES</span>
+        <span style="font-weight: 900; letter-spacing: 0.5px; font-size: 14px;">OUM FARES</span>
     </div>
     <a href="cart.html" class="cart-link">
         <i class="fas fa-shopping-bag"></i>
@@ -68,59 +102,90 @@
 </header>
 
 <div class="container">
-    <div class="page-title">
-        <h1>موديلات الطراشين</h1>
-        <p>اختاري النوع الذي يعجبكِ وأضيفيه للسلة</p>
+    <div class="section-title">
+        <h1>اكتشفي تشكيلتنا</h1>
+        <div class="line"></div>
     </div>
 
     <div class="models-grid">
-        <div class="model-item">
+        <div class="model-card">
+            <span class="badge">متوفر</span>
             <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg" class="model-img">
             <div class="model-info">
-                <span class="model-name">طراشين قماش ميتييس</span>
+                <span class="model-name">طراشين ميتييس كلاسيك</span>
                 <span class="model-price">1200 دج</span>
-                <button class="btn-add-small" onclick="addToCart('طراشين ميتييس', 1200, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة <i class="fas fa-plus"></i></button>
+                <button class="btn-add" onclick="addToCart('طراشين ميتييس', 1200, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة <i class="fas fa-plus"></i></button>
             </div>
         </div>
 
-        <div class="model-item">
+        <div class="model-card">
+            <span class="badge">بالطلب</span>
             <img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png" class="model-img">
             <div class="model-info">
-                <span class="model-name">طقم مناديل وردي</span>
+                <span class="model-name">طقم مناديل المطبخ الوردي</span>
                 <span class="model-price">1500 دج</span>
-                <button class="btn-add-small" onclick="addToCart('مناديل وردي', 1500, 'https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png')">إضافة <i class="fas fa-plus"></i></button>
-            </div>
-        </div>
-        
-        </div>
-
-    <div class="details-box">
-        <div class="detail-row">
-            <i class="fas fa-cut"></i>
-            <div class="detail-text">
-                <h4>مدة الخياطة والتحضير</h4>
-                <p>كل قطعة تخاط بعناية فائقة. تستغرق مدة التفصيل والخياطة من 3 إلى 7 أيام حسب ضغط الطلبات لضمان أعلى جودة.</p>
+                <button class="btn-add" onclick="addToCart('مناديل وردي', 1500, 'https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png')">إضافة <i class="fas fa-plus"></i></button>
             </div>
         </div>
 
-        <div class="detail-row">
-            <i class="fas fa-truck"></i>
-            <div class="detail-text">
-                <h4>معلومات التوصيل</h4>
-                <p>نوفر التوصيل لـ 58 ولاية. الدفع يكون عند الاستلام. سعر التوصيل يختلف حسب الولاية (مثلاً: العاصمة 400دج، الولايات البعيدة 600-800دج).</p>
+        <div class="model-card">
+            <span class="badge">جديد</span>
+            <img src="https://i.postimg.cc/Nf1GwGY4/images.jpg" class="model-img">
+            <div class="model-info">
+                <span class="model-name">طقم صالة قماش قطني</span>
+                <span class="model-price">4500 دج</span>
+                <button class="btn-add" onclick="addToCart('طقم صالة قطني', 4500, 'https://i.postimg.cc/Nf1GwGY4/images.jpg')">إضافة <i class="fas fa-plus"></i></button>
             </div>
         </div>
 
-        <div class="detail-row">
-            <i class="fas fa-shield-alt"></i>
-            <div class="detail-text">
-                <h4>ضمان الجودة</h4>
-                <p>نستخدم أفضل الأقمشة (قماش قطني، ميتييس، بيزو بيزو) لضمان عدم تغير الألوان بعد الغسيل المتكرر.</p>
+        <div class="model-card">
+            <span class="badge">الأكثر طلباً</span>
+            <img src="https://i.postimg.cc/j241Z10G/images.jpg" class="model-img">
+            <div class="model-info">
+                <span class="model-name">طقم أطفال صيفي</span>
+                <span class="model-price">2800 دج</span>
+                <button class="btn-add" onclick="addToCart('طقم أطفال', 2800, 'https://i.postimg.cc/j241Z10G/images.jpg')">إضافة <i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="model-card">
+            <span class="badge">متوفر</span>
+            <img src="https://i.postimg.cc/2SGzVH1q/images.jpg" class="model-img">
+            <div class="model-info">
+                <span class="model-name">طقم بيبي قطني ناعم</span>
+                <span class="model-price">3200 دج</span>
+                <button class="btn-add" onclick="addToCart('طقم بيبي', 3200, 'https://i.postimg.cc/2SGzVH1q/images.jpg')">إضافة <i class="fas fa-plus"></i></button>
             </div>
         </div>
     </div>
 
-    <a href="index.html" class="btn-home">العودة للرئيسية</a>
+    <div class="info-card">
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-magic"></i></div>
+            <div class="info-text">
+                <h4>مدة الخياطة والإنجاز</h4>
+                <p>نعمل بحب على كل طلبية. تستغرق الخياطة من 3 إلى 7 أيام عمل لضمان إتقان كل غرزة.</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-truck-loading"></i></div>
+            <div class="info-text">
+                <h4>شحن سريع لـ 58 ولاية</h4>
+                <p>نصل إليكِ أينما كنتِ. الدفع يكون عند استلام طلبيتكِ يداً بيد.</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon"><i class="fas fa-medal"></i></div>
+            <div class="info-text">
+                <h4>لماذا نحن؟</h4>
+                <p>نختار أفخم الأقمشة (ميتييس، بيزو بيزو) التي تدوم طويلاً ولا تفقد جمالها مع الغسيل.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
 </div>
 
 <script>
@@ -139,4 +204,4 @@
     updateCartCount();
 </script>
 </body>
-</html>
+                                                                                                 </html>
