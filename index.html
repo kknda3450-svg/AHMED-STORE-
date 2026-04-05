@@ -3,85 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Couture Oum Fares | متجر أم فارس</title>
+    <title>سلة المشتريات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #000; --accent: #e67e22; --bg: #fbfbfb; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); padding-bottom: 50px; }
-        header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: #fff; border-bottom: 1px solid #eee; sticky; top: 0; z-index: 1000; }
-        .logo-area img { width: 55px; height: 55px; border-radius: 50%; border: 1px solid #000; }
-        .cart-icon { position: relative; font-size: 24px; color: #000; text-decoration: none; }
-        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--accent); color: #fff; font-size: 12px; padding: 2px 7px; border-radius: 50%; }
-        
-        .search-area { padding: 20px 5%; text-align: center; }
-        .search-area input { width: 100%; max-width: 500px; padding: 15px; border-radius: 50px; border: 1px solid #ddd; outline: none; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 5%; }
-        .card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
-        .card-body { padding: 20px; }
-        .price { color: var(--accent); font-weight: bold; display: block; margin: 10px 0; font-size: 18px; }
-        
-        .btn-add { background: var(--primary); color: #fff; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
-        .btn-add:hover { background: #333; }
+        body { font-family: sans-serif; background: #f8f9fa; padding: 20px; }
+        .item { background: #fff; padding: 15px; display: flex; align-items: center; gap: 15px; margin-bottom: 10px; border-radius: 10px; }
+        .item img { width: 60px; height: 60px; border-radius: 5px; }
+        .item-info { flex: 1; }
+        .btn-del { color: red; border: none; background: none; cursor: pointer; font-size: 20px; }
+        .total { font-size: 20px; font-weight: bold; text-align: center; margin-top: 20px; }
+        .btn-order { display: block; width: 100%; background: #000; color: #fff; text-align: center; padding: 15px; text-decoration: none; border-radius: 10px; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-area"><img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo"></div>
-    <a href="cart.html" class="cart-icon">
-        <i class="fas fa-shopping-bag"></i>
-        <span class="cart-count" id="cartCount">0</span>
-    </a>
-</header>
-
-<div class="search-area">
-    <input type="text" id="searchInput" placeholder="ابحثي عن موديل..." onkeyup="search()">
-</div>
-
-<div class="grid" id="productGrid">
-    <div class="card" data-name="طراشين">
-        <img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg">
-        <div class="card-body">
-            <h3>طراشين ومناديل</h3>
-            <span class="price">1200 دج</span>
-            <button class="btn-add" onclick="addToCart('طراشين ومناديل', 1200, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة للسلة 🛒</button>
-        </div>
-    </div>
-    <div class="card" data-name="طقم صالة">
-        <img src="https://i.postimg.cc/Nf1GwGY4/images.jpg">
-        <div class="card-body">
-            <h3>طقم صالة ملكي</h3>
-            <span class="price">4500 دج</span>
-            <button class="btn-add" onclick="addToCart('طقم صالة ملكي', 4500, 'https://i.postimg.cc/Nf1GwGY4/images.jpg')">إضافة للسلة 🛒</button>
-        </div>
-    </div>
-</div>
+    <h2><i class="fas fa-shopping-cart"></i> سلتي</h2>
+    <div id="cartList"></div>
+    <div class="total" id="totalPrice">الإجمالي: 0 دج</div>
+    
+    <a href="order.html" class="btn-order">تأكيد الطلب عبر الإيميل</a>
+    <a href="index.html" style="display:block; text-align:center; margin-top:15px; color:#666;">العودة للمتجر</a>
 
 <script>
-    let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
+    function renderCart() {
+        let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
+        let list = document.getElementById('cartList');
+        let total = 0;
+        list.innerHTML = "";
 
-    function addToCart(name, price, img) {
-        cart.push({name, price, img});
-        localStorage.setItem('oumFaresCart', JSON.stringify(cart));
-        updateCartCount();
-        alert("تمت الإضافة للسلة بنجاح! ✅");
-    }
+        if(cart.length === 0) {
+            list.innerHTML = "<p style='text-align:center;'>السلة فارغة</p>";
+        }
 
-    function updateCartCount() {
-        document.getElementById('cartCount').innerText = cart.length;
-    }
-
-    function search() {
-        let val = document.getElementById('searchInput').value.toLowerCase();
-        let cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            let name = card.getAttribute('data-name').toLowerCase();
-            card.style.display = name.includes(val) ? "block" : "none";
+        cart.forEach((item, index) => {
+            total += item.price;
+            list.innerHTML += `
+                <div class="item">
+                    <img src="${item.img}">
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        <p>${item.price} دج</p>
+                    </div>
+                    <button class="btn-del" onclick="remove(${index})"><i class="fas fa-trash"></i></button>
+                </div>
+            `;
         });
+        document.getElementById('totalPrice').innerText = "الإجمالي: " + total + " دج";
     }
-    updateCartCount();
+
+    function remove(index) {
+        let cart = JSON.parse(localStorage.getItem('oumFaresCart'));
+        cart.splice(index, 1); // حذف العنصر
+        localStorage.setItem('oumFaresCart', JSON.stringify(cart));
+        renderCart(); // إعادة عرض السلة
+    }
+
+    renderCart();
 </script>
 </body>
 </html>
