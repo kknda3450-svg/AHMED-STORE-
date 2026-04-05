@@ -11,6 +11,7 @@
             --accent: #e67e22;
             --bg-light: #fbfbfb;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            --success: #27ae60;
         }
 
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-light); color: #333; padding-bottom: 50px; }
@@ -88,11 +89,38 @@
         }
         .btn-add-cart:hover { background: #eee; }
 
+        /* التنبيه الاحترافي (Toast) */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        .toast i { color: var(--success); font-size: 18px; }
+
         footer { text-align: center; padding: 30px; background: #fff; margin-top: 40px; border-top: 1px solid #eee; color: #777; font-size: 12px; }
         #no-results { display: none; text-align: center; padding: 30px; font-size: 16px; color: #888; }
     </style>
 </head>
 <body>
+
+<div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> تمت إضافة الموديل للسلة!
+</div>
 
 <header>
     <div class="logo-area">
@@ -198,7 +226,6 @@
 </footer>
 
 <script>
-    // نظام السلة الحقيقي
     let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
 
     function updateCartCount() {
@@ -210,7 +237,15 @@
         cart.push(product);
         localStorage.setItem('oumFaresCart', JSON.stringify(cart));
         updateCartCount();
-        alert("تمت إضافة الموديل للسلة! ✅");
+        
+        // إظهار التنبيه الاحترافي بدل الـ Alert
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        
+        // إخفاء التنبيه بعد 3 ثواني
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
     }
 
     function searchProducts() {
@@ -229,8 +264,7 @@
         document.getElementById('no-results').style.display = found ? "none" : "block";
     }
 
-    // تحديث العداد عند التحميل
     updateCartCount();
 </script>
 </body>
-                                 </html>
+    </html>
