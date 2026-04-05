@@ -4,21 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تأكيد الطلب | Couture Oum Fares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #000; margin: 0; padding: 20px; }
-        .order-container { max-width: 500px; margin: 40px auto; background: #fff; border: 2px solid #000; padding: 30px; }
-        .header-order { text-align: center; margin-bottom: 30px; }
-        .header-order img { width: 80px; height: 80px; border-radius: 50%; border: 1px solid #000; }
+        :root { --accent: #000; --bg: #fdfdfd; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: #333; margin: 0; padding: 15px; }
         
-        h2 { text-align: center; text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .order-container { 
+            max-width: 550px; 
+            margin: 20px auto; 
+            background: #fff; 
+            border-radius: 25px; 
+            padding: 35px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+        }
+
+        .header-order { text-align: center; margin-bottom: 25px; }
+        .header-order img { width: 85px; height: 85px; border-radius: 50%; border: 2px solid var(--accent); padding: 3px; object-fit: cover; }
+        .header-order h3 { margin: 10px 0 5px; font-size: 18px; letter-spacing: 1px; }
         
-        label { display: block; margin-top: 15px; font-weight: bold; font-size: 14px; }
-        input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; box-sizing: border-box; font-size: 16px; }
-        input:focus { border-color: #000; outline: none; }
+        h2 { text-align: center; font-size: 22px; margin-bottom: 30px; color: var(--accent); position: relative; padding-bottom: 10px; }
+        h2::after { content: ''; width: 40px; height: 3px; background: var(--accent); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
         
-        .btn-send { width: 100%; background: #000; color: #fff; border: none; padding: 18px; font-weight: bold; margin-top: 25px; cursor: pointer; font-size: 17px; }
-        .btn-send:hover { background: #333; }
-        .back-link { display: block; text-align: center; margin-top: 20px; color: #666; text-decoration: none; font-size: 14px; }
+        label { display: block; margin-top: 20px; font-weight: 700; font-size: 14px; color: #555; }
+        
+        /* تحسين المدخلات */
+        input, textarea { 
+            width: 100%; 
+            padding: 15px; 
+            margin-top: 8px; 
+            border: 1.5px solid #eee; 
+            border-radius: 12px; 
+            box-sizing: border-box; 
+            font-size: 16px; 
+            background: #fcfcfc;
+            transition: 0.3s;
+        }
+        input:focus, textarea:focus { border-color: var(--accent); background: #fff; outline: none; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        /* تنسيق قائمة اختيار المنتجات (الأزرار الحديثة) */
+        .product-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .product-selector input[type="radio"] { display: none; }
+        .product-selector label {
+            margin: 0;
+            background: #fff;
+            border: 1.5px solid #eee;
+            padding: 12px 5px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .product-selector input[type="radio"]:checked + label {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+        }
+
+        /* الأزرار النهائية */
+        .btn-send { 
+            width: 100%; 
+            background: var(--accent); 
+            color: #fff; 
+            border: none; 
+            padding: 18px; 
+            font-weight: 800; 
+            margin-top: 35px; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-size: 17px; 
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .btn-send:hover { background: #333; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        
+        .back-link { 
+            display: inline-block; 
+            width: 100%; 
+            text-align: center; 
+            margin-top: 20px; 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-link:hover { color: #000; }
+
+        @media (max-width: 500px) {
+            .order-container { padding: 20px; margin: 10px auto; }
+            .product-selector { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -32,31 +121,43 @@
     <h2>تأكيد الطلبية 📋</h2>
     
     <form action="https://formspree.io/f/mdappaoy" method="POST">
-        <label>الاسم الكامل:</label>
+        <label><i class="fas fa-user"></i> الاسم الكامل:</label>
         <input type="text" name="name" placeholder="أدخلي اسمكِ هنا" required>
 
-        <label>رقم الهاتف:</label>
+        <label><i class="fas fa-phone"></i> رقم الهاتف:</label>
         <input type="tel" name="phone" placeholder="06xxxxxxxx" required>
 
-        <label>نوع المنتج أو الخدمة:</label>
-<select name="service" required style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; font-size: 16px;">
-    <option value="" disabled selected>إختاري نوع المنتج...</option>
-    <option value="طراشين ومناديل">طراشين ومناديل</option>
-    <option value="طقم صالة">طقم صالة</option>
-    <option value="طقم أطفال">طقم أطفال</option>
-    <option value="طقم مطبخ">طقم مطبخ</option>
-    <option value="طقم بيبي">طقم بيبي</option>
-    <option value="طقم نزهة">طقم نزهة</option>
-    <option value="طقم عرائس">طقم عرائس</option>
-</select>
+        <label><i class="fas fa-th-list"></i> اختاري نوع المنتج:</label>
+        <div class="product-selector">
+            <input type="radio" id="p1" name="service" value="طراشين ومناديل" required>
+            <label for="p1">🧺 طراشين</label>
 
-        <label>العنوان:</label>
+            <input type="radio" id="p2" name="service" value="طقم صالة">
+            <label for="p2">🛋️ طقم صالة</label>
+
+            <input type="radio" id="p3" name="service" value="طقم أطفال">
+            <label for="p3">👕 طقم أطفال</label>
+
+            <input type="radio" id="p4" name="service" value="طقم مطبخ">
+            <label for="p4">🍳 طقم مطبخ</label>
+
+            <input type="radio" id="p5" name="service" value="طقم بيبي">
+            <label for="p5">👶 طقم بيبي</label>
+
+            <input type="radio" id="p6" name="service" value="طقم نزهة">
+            <label for="p6">🌳 طقم نزهة</label>
+
+            <input type="radio" id="p7" name="service" value="طقم عرائس">
+            <label for="p7">👰 طقم عرائس</label>
+        </div>
+
+        <label><i class="fas fa-map-marker-alt"></i> العنوان:</label>
         <input type="text" name="address" placeholder="الولاية والبلدية" required>
 
-        <label>ملاحظات (المقاس أو اللون):</label>
+        <label><i class="fas fa-pen"></i> ملاحظات (المقاس أو اللون):</label>
         <textarea name="message" rows="3" placeholder="اكتبي تفاصيل إضافية هنا..."></textarea>
 
-        <button type="submit" class="btn-send">إرسال الطلب عبر الإيميل ✅</button>
+        <button type="submit" class="btn-send">تأكيد الإرسال ✅</button>
     </form>
     
     <a href="index.html" class="back-link">← العودة للمتجر</a>
