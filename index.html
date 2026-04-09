@@ -8,7 +8,7 @@
     <style>
         :root {
             --primary: #000;
-            --accent: #d4af37; /* اللون الذهبي المطلوب */
+            --accent: #d4af37;
             --bg-light: #fbfbfb;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
             --success: #27ae60;
@@ -74,7 +74,7 @@
         
         .price-tag { 
             display: inline-block; color: var(--accent); font-weight: 800; font-size: 17px; 
-            margin-bottom: 12px; padding: 4px 12px; background: #fffaf0; border-radius: 50px;
+            margin-bottom: 12px; padding: 4px 12px; background: #fff5ed; border-radius: 50px;
         }
         
         .btn-view { 
@@ -89,7 +89,6 @@
         }
         .btn-add-cart:hover { background: #eee; }
 
-        /* التنبيه الاحترافي (Toast) */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -111,6 +110,9 @@
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
         .toast i { color: var(--success); font-size: 18px; }
+
+        footer { text-align: center; padding: 30px; background: #fff; margin-top: 40px; border-top: 1px solid #eee; color: #777; font-size: 12px; }
+        #no-results { display: none; text-align: center; padding: 30px; font-size: 16px; color: #888; }
     </style>
 </head>
 <body>
@@ -121,7 +123,7 @@
             <h1>خياطة المفروشات Couture d'Ameublement</h1>
         </div>
         <div class="header-actions">
-            <a href="https://www.facebook.com/profile.php?id=61588499051492" target="_blank" style="font-size: 20px; color: #1877f2;"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61588499051492" target="_blank" style="color: #1877f2; font-size: 22px;"><i class="fab fa-facebook"></i></a>
             <a href="#" class="cart-icon">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count">0</span>
