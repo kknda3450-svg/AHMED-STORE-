@@ -118,3 +118,153 @@
 </head>
 <body>
 
+<div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> تمت إضافة الموديل للسلة!
+</div>
+
+<header>
+    <div class="logo-area">
+        <img src="https://i.postimg.cc/rydfKvRB/Gemini-Generated-Image-ahf8dqahf8dqahf8.png" alt="Logo">
+        <h1>COUTURE OUM FARES</h1>
+    </div>
+    
+    <div class="header-actions">
+        <a href="https://www.facebook.com/awlady.jnty.383860" style="color:#000;"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="cart.html" class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+<div class="search-container">
+    <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="ابحثي عن موديل..." onkeyup="searchProducts()">
+    </div>
+</div>
+
+<div class="container">
+    <div id="no-results">لم نجد موديلات بهذا الاسم.. ✨</div>
+    <div class="grid" id="productGrid">
+        
+        <div class="card" data-name="طراشين ومناديل">
+            <div class="img-box"><img src="https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg"></div>
+            <div class="card-body">
+                <h3>طراشين ومناديل</h3>
+                <span class="price-tag">1200 دج</span>
+                <a href="product1.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart('طراشين ومناديل', 1200, 'https://i.postimg.cc/MTNZzvvN/Messenger-creation-865167DC-2C63-4C28-80BB-2116F04A295C-2.jpg')">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم صالة">
+            <div class="img-box"><img src="https://i.postimg.cc/Nf1GwGY4/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم صالة</h3>
+                <span class="price-tag">4500 دج</span>
+                <a href="product2.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart('طقم صالة', 4500, 'https://i.postimg.cc/Nf1GwGY4/images.jpg')">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم أطفال">
+            <div class="img-box"><img src="https://i.postimg.cc/j241Z10G/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم أطفال</h3>
+                <span class="price-tag">2800 دج</span>
+                <a href="product3.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart('طقم أطفال', 2800, 'https://i.postimg.cc/j241Z10G/images.jpg')">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم مطبخ">
+            <div class="img-box"><img src="https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png"></div>
+            <div class="card-body">
+                <h3>طقم مطبخ</h3>
+                <span class="price-tag">3500 دج</span>
+                <a href="product4.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart('طقم مطبخ', 3500, 'https://i.postimg.cc/pThxcRqC/Gemini-Generated-Image-hp65trhp65trhp65.png')">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم بيبي">
+            <div class="img-box"><img src="https://i.postimg.cc/2SGzVH1q/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم بيبي</h3>
+                <span class="price-tag">3200 دج</span>
+                <a href="product5.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart('طقم بيبي', 3200, 'https://i.postimg.cc/2SGzVH1q/images.jpg')">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم نزهة">
+            <div class="img-box"><img src="https://i.postimg.cc/Njdcg5nr/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم نزهة</h3>
+                <span class="price-tag">2500 دج</span>
+                <a href="product6.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart('طقم نزهة', 2500, 'https://i.postimg.cc/Njdcg5nr/images.jpg')">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="طقم عرائس">
+            <div class="img-box"><img src="https://i.postimg.cc/gk45h1Kw/images.jpg"></div>
+            <div class="card-body">
+                <h3>طقم عرائس</h3>
+                <span class="price-tag">8500 دج</span>
+                <a href="product7.html" class="btn-view">استكشاف الموديلات <i class="fas fa-eye"></i></a>
+                <button class="btn-add-cart" onclick="addToCart('طقم عرائس', 8500, 'https://i.postimg.cc/gk45h1Kw/images.jpg')">إضافة للسلة 🛒</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة لورشة أم فارس &copy; 2026</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('oumFaresCart')) || [];
+
+    function updateCartCount() {
+        document.getElementById('cart-count').innerText = cart.length;
+    }
+
+    function addToCart(name, price, img) {
+        const product = { name, price, img };
+        cart.push(product);
+        localStorage.setItem('oumFaresCart', JSON.stringify(cart));
+        updateCartCount();
+        
+        // إظهار التنبيه الاحترافي بدل الـ Alert
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        
+        // إخفاء التنبيه بعد 3 ثواني
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    function searchProducts() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('card');
+        let found = false;
+        for (let i = 0; i < cards.length; i++) {
+            let name = cards[i].getAttribute('data-name').toLowerCase();
+            if (name.includes(input)) {
+                cards[i].style.display = "flex";
+                found = true;
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+        document.getElementById('no-results').style.display = found ? "none" : "block";
+    }
+
+    updateCartCount();
+</script>
+</body>
+    </html>
