@@ -8,7 +8,7 @@
     <style>
         :root {
             --primary: #000;
-            --accent: #d4af37; /* تم تغيير اللون للذهبي ليناسب اللوجو */
+            --accent: #d4af37; /* اللون الذهبي المطلوب */
             --bg-light: #fbfbfb;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
             --success: #27ae60;
@@ -30,8 +30,7 @@
         }
         
         .logo-area { display: flex; align-items: center; gap: 10px; }
-        /* وضع رابط اللوجو الخاص بك هنا */
-        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid var(--accent); object-fit: cover; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid var(--primary); object-fit: cover; }
         .logo-area h1 { font-size: 14px; margin: 0; letter-spacing: 0.5px; }
 
         .header-actions { display: flex; align-items: center; gap: 15px; }
@@ -40,8 +39,6 @@
             position: absolute; top: -8px; right: -10px; background: var(--accent); 
             color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; font-weight: bold; 
         }
-        /* إضافة ستايل أيقونة الفيسبوك */
-        .fb-icon { color: #1877F2; font-size: 22px; text-decoration: none; }
 
         .search-container { 
             width: 85%; 
@@ -92,6 +89,7 @@
         }
         .btn-add-cart:hover { background: #eee; }
 
+        /* التنبيه الاحترافي (Toast) */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -113,9 +111,6 @@
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
         .toast i { color: var(--success); font-size: 18px; }
-
-        footer { text-align: center; padding: 30px; background: #fff; margin-top: 40px; border-top: 1px solid #eee; color: #777; font-size: 12px; }
-        #no-results { display: none; text-align: center; padding: 30px; font-size: 16px; color: #888; }
     </style>
 </head>
 <body>
@@ -126,47 +121,10 @@
             <h1>خياطة المفروشات Couture d'Ameublement</h1>
         </div>
         <div class="header-actions">
-            <a href="https://www.facebook.com/profile.php?id=61588499051492" target="_blank" class="fb-icon">
-                <i class="fab fa-facebook"></i>
-            </a>
+            <a href="https://www.facebook.com/profile.php?id=61588499051492" target="_blank" style="font-size: 20px; color: #1877f2;"><i class="fab fa-facebook"></i></a>
             <a href="#" class="cart-icon">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count">0</span>
             </a>
         </div>
     </header>
-
-    <div class="search-container">
-        <div class="search-wrapper">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="بحث عن منتجات...">
-        </div>
-    </div>
-
-    <div class="container">
-        <div id="no-results">لا توجد نتائج تطابق بحثك</div>
-        <div class="grid">
-            <div class="card">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc2f51f92?q=80&w=1000&auto=format&fit=crop" alt="مفروشات">
-                </div>
-                <div class="card-body">
-                    <h3>طقم صالون فخم</h3>
-                    <div class="price-tag">السعر عند الطلب</div>
-                    <a href="#" class="btn-view">مشاهدة المنتج</a>
-                    <button class="btn-add-cart">إضافة للسلة</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="toast" class="toast">
-        <i class="fas fa-check-circle"></i> تم الإضافة بنجاح
-    </div>
-
-    <footer>
-        &copy; 2026 خياطة المفروشات Couture d'Ameublement - الجلفة
-    </footer>
-
-</body>
-</html>
