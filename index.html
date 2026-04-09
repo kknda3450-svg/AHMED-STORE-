@@ -8,13 +8,13 @@
     <style>
         :root {
             --primary: #000;
-            --accent: #d4af37; /* لون ذهبي يتناسب مع اللوجو الجديد */
+            --accent: #e67e22;
             --bg-light: #fbfbfb;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
             --success: #27ae60;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--bg-light); color: #333; padding-bottom: 50px; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-light); color: #333; padding-bottom: 50px; }
         
         header { 
             padding: 10px 5%; 
@@ -29,15 +29,13 @@
             z-index: 1000; 
         }
         
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo-area img { width: 50px; height: 50px; border-radius: 50%; border: 1.5px solid var(--accent); object-fit: cover; }
-        .logo-area div { display: flex; flex-direction: column; }
-        .logo-area h1 { font-size: 16px; margin: 0; letter-spacing: 0.5px; color: var(--primary); }
-        .logo-area span { font-size: 10px; color: #777; font-weight: bold; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid var(--primary); object-fit: cover; }
+        .logo-area h1 { font-size: 14px; margin: 0; letter-spacing: 0.5px; }
 
         .header-actions { display: flex; align-items: center; gap: 15px; }
-        .social-link { font-size: 22px; color: #1877F2; text-decoration: none; transition: 0.3s; }
-        .social-link:hover { transform: scale(1.1); }
+        /* تعديل رابط الفيسبوك هنا */
+        .fb-link { font-size: 20px; color: #1877f2; text-decoration: none; }
         
         .cart-icon { position: relative; font-size: 20px; color: var(--primary); text-decoration: none; }
         .cart-count { 
@@ -46,14 +44,15 @@
         }
 
         .search-container { 
-            width: 90%; 
-            max-width: 500px; 
+            width: 85%; 
+            max-width: 400px; 
             margin: 20px auto 10px; 
+            padding: 0; 
         }
         .search-wrapper { position: relative; width: 100%; }
         .search-wrapper input { 
             width: 100%; 
-            padding: 12px 45px 12px 15px; 
+            padding: 12px 40px 12px 12px; 
             border-radius: 25px; 
             border: 1px solid #ddd; 
             outline: none; 
@@ -61,7 +60,6 @@
             transition: 0.3s;
             box-sizing: border-box; 
         }
-        .search-wrapper input:focus { border-color: var(--accent); box-shadow: 0 0 8px rgba(212, 175, 55, 0.2); }
         .search-wrapper i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #888; font-size: 14px; }
 
         .container { padding: 15px 5%; max-width: 1200px; margin: auto; }
@@ -71,18 +69,15 @@
             background: #fff; border-radius: 15px; overflow: hidden; transition: 0.4s; 
             box-shadow: var(--card-shadow); border: 1px solid #f0f0f0; display: flex; flex-direction: column;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        
-        .img-box { width: 100%; height: 280px; overflow: hidden; position: relative; }
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .card:hover img { scale: 1.05; }
+        .img-box { width: 100%; height: 280px; overflow: hidden; }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
         
         .card-body { padding: 15px; text-align: center; }
         .card h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; }
         
         .price-tag { 
             display: inline-block; color: var(--accent); font-weight: 800; font-size: 17px; 
-            margin-bottom: 12px; padding: 4px 12px; background: #fffaf0; border-radius: 50px;
+            margin-bottom: 12px; padding: 4px 12px; background: #fff5ed; border-radius: 50px;
         }
         
         .btn-view { 
@@ -90,7 +85,6 @@
             background: var(--primary); color: #fff; text-decoration: none; padding: 12px; 
             font-weight: bold; border-radius: 10px; transition: 0.3s; font-size: 14px; margin-bottom: 8px;
         }
-        .btn-view:hover { background: #333; }
         
         .btn-add-cart {
             background: #f8f8f8; color: #333; border: 1px solid #ddd; padding: 10px;
@@ -99,19 +93,28 @@
         .btn-add-cart:hover { background: #eee; }
 
         .toast {
-            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-            background: #333; color: white; padding: 12px 25px; border-radius: 50px;
-            font-weight: bold; font-size: 14px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 2000;
-            display: flex; align-items: center; gap: 10px; white-space: nowrap;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
         .toast i { color: var(--success); font-size: 18px; }
 
-        footer { 
-            text-align: center; padding: 40px 5%; background: #fff; margin-top: 50px; 
-            border-top: 1px solid #eee; color: #888; font-size: 13px; 
-        }
+        footer { text-align: center; padding: 20px; font-size: 12px; color: #888; }
     </style>
 </head>
 <body>
@@ -119,13 +122,11 @@
     <header>
         <div class="logo-area">
             <img src="https://i.postimg.cc/MZMgVNzF/Gemini-Generated-Image-t91bx6t91bx6t91b.png" alt="Logo">
-            <div>
-                <h1>خياطة المفروشات</h1>
-                <span>Couture d'Ameublement</span>
-            </div>
+            <h1>خياطة المفروشات Couture d'Ameublement</h1>
         </div>
+
         <div class="header-actions">
-            <a href="https://www.facebook.com/profile.php?id=61588499051492" target="_blank" class="social-link" title="تابعنا على فيسبوك">
+            <a href="https://www.facebook.com/profile.php?id=61588499051492" target="_blank" class="fb-link">
                 <i class="fab fa-facebook"></i>
             </a>
             <a href="#" class="cart-icon">
@@ -138,60 +139,22 @@
     <div class="search-container">
         <div class="search-wrapper">
             <i class="fas fa-search"></i>
-            <input type="text" placeholder="ابحث عن ستائر، أرائك، أو مفروشات...">
+            <input type="text" placeholder="بحث...">
         </div>
     </div>
 
     <div class="container">
         <div class="grid">
-            <div class="card">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc2f51f92?q=80&w=1000&auto=format&fit=crop" alt="منتج">
-                </div>
-                <div class="card-body">
-                    <h3>طقم صالون عصري</h3>
-                    <div class="price-tag">45,000 د.ج</div>
-                    <a href="#" class="btn-view">عرض التفاصيل</a>
-                    <button class="btn-add-cart" onclick="addToCart()">إضافة إلى السلة</button>
-                </div>
             </div>
-            
-            <div class="card">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop" alt="منتج">
-                </div>
-                <div class="card-body">
-                    <h3>ستائر غرف نوم فخمة</h3>
-                    <div class="price-tag">12,500 د.ج</div>
-                    <a href="#" class="btn-view">عرض التفاصيل</a>
-                    <button class="btn-add-cart" onclick="addToCart()">إضافة إلى السلة</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div id="toast" class="toast">
-        <i class="fas fa-check-circle"></i> تم إضافة المنتج للسلة بنجاح!
+        <i class="fas fa-check-circle"></i> تم الإضافة بنجاح
     </div>
 
     <footer>
-        <p>© 2026 خياطة المفروشات Couture d'Ameublement - جميع الحقوق محفوظة</p>
-        <p>الجلفة، الجزائر</p>
+        &copy; 2026 خياطة المفروشات Couture d'Ameublement
     </footer>
 
-    <script>
-        function addToCart() {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            
-            // تحديث العداد بشكل وهمي للجمالية
-            const count = document.querySelector('.cart-count');
-            count.innerText = parseInt(count.innerText) + 1;
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-    </script>
 </body>
-                        </html>
+</html>
