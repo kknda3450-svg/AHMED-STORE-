@@ -89,12 +89,25 @@
         }
         .btn-add-cart:hover { background: #eee; }
 
+        /* التنبيه الاحترافي (Toast) */
         .toast {
-            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-            background: #333; color: white; padding: 12px 25px; border-radius: 50px;
-            font-weight: bold; font-size: 14px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 2000;
-            display: flex; align-items: center; gap: 10px; white-space: nowrap;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
         .toast i { color: var(--success); font-size: 18px; }
@@ -105,122 +118,3 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo-area">
-            <img src="رابط_اللوجو_هنا" alt="Logo">
-            <h1>Couture Oum Fares | متجر خياطة أم فارس</h1>
-        </div>
-        <div class="header-actions">
-            <a href="رابط_الفيسبوك_هنا" target="_blank" style="color: #1877f2; font-size: 20px;"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="cart-icon">
-                <i class="fas fa-shopping-bag"></i>
-                <span id="cart-count" class="cart-count">0</span>
-            </a>
-        </div>
-    </header>
-
-    <div class="search-container">
-        <div class="search-wrapper">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="بحث عن منتجاتنا...">
-        </div>
-    </div>
-
-    <div class="container">
-        <div id="no-results">لا توجد نتائج تطابق بحثك</div>
-        <div class="grid" id="productGrid">
-            <div class="card">
-                <div class="img-box"><img src="رابط_صورة_1" alt="منتج 1"></div>
-                <div class="card-body">
-                    <h3>اسم المنتج 1</h3>
-                    <div class="price-tag">00.00 د.ج</div>
-                    <a href="#" class="btn-view">مشاهدة التفاصيل</a>
-                    <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="رابط_صورة_2" alt="منتج 2"></div>
-                <div class="card-body">
-                    <h3>اسم المنتج 2</h3>
-                    <div class="price-tag">00.00 د.ج</div>
-                    <a href="#" class="btn-view">مشاهدة التفاصيل</a>
-                    <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="رابط_صورة_3" alt="منتج 3"></div>
-                <div class="card-body">
-                    <h3>اسم المنتج 3</h3>
-                    <div class="price-tag">00.00 د.ج</div>
-                    <a href="#" class="btn-view">مشاهدة التفاصيل</a>
-                    <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="رابط_صورة_4" alt="منتج 4"></div>
-                <div class="card-body">
-                    <h3>اسم المنتج 4</h3>
-                    <div class="price-tag">00.00 د.ج</div>
-                    <a href="#" class="btn-view">مشاهدة التفاصيل</a>
-                    <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="رابط_صورة_5" alt="منتج 5"></div>
-                <div class="card-body">
-                    <h3>اسم المنتج 5</h3>
-                    <div class="price-tag">00.00 د.ج</div>
-                    <a href="#" class="btn-view">مشاهدة التفاصيل</a>
-                    <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة</button>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="رابط_صورة_6" alt="منتج 6"></div>
-                <div class="card-body">
-                    <h3>اسم المنتج 6</h3>
-                    <div class="price-tag">00.00 د.ج</div>
-                    <a href="#" class="btn-view">مشاهدة التفاصيل</a>
-                    <button class="btn-add-cart" onclick="addToCart()">إضافة للسلة</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="toast" class="toast">
-        <i class="fas fa-check-circle"></i> تم الإضافة بنجاح
-    </div>
-
-    <footer>&copy; 2026 Couture Oum Fares</footer>
-
-    <script>
-        // كود البحث
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            let filter = e.target.value.toLowerCase();
-            let cards = document.querySelectorAll('.card');
-            let noResults = document.getElementById('no-results');
-            let found = false;
-
-            cards.forEach(card => {
-                let title = card.querySelector('h3').innerText.toLowerCase();
-                if(title.includes(filter)) {
-                    card.style.display = "flex";
-                    found = true;
-                } else {
-                    card.style.display = "none";
-                }
-            });
-            noResults.style.display = found ? "none" : "block";
-        });
-
-        // كود إضافة للسلة والتنبيه
-        let count = 0;
-        function addToCart() {
-            count++;
-            document.getElementById('cart-count').innerText = count;
-            let toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => { toast.classList.remove('show'); }, 3000);
-        }
-    </script>
-</body>
-    </html>
