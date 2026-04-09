@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خياطة المفروشات | Couture d'Ameublement</title>
+    <title>Couture Oum Fares | متجر خياطة أم فارس</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #000;
-            --accent: #d4af37;
+            /* 2. تعديل الألوان الأساسية هنا */
+            --primary: #000;         /* اللون الأسود الأساسي */
+            --accent: #e67e22;        /* اللون البرتقالي - يمكنك تغييره للذهبي مثلاً #d4af37 */
             --bg-light: #fbfbfb;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
             --success: #27ae60;
@@ -90,23 +91,11 @@
         .btn-add-cart:hover { background: #eee; }
 
         .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #333;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            white-space: nowrap;
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: #333; color: white; padding: 12px 25px; border-radius: 50px;
+            font-weight: bold; font-size: 14px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 2000;
+            display: flex; align-items: center; gap: 10px; white-space: nowrap;
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
         .toast i { color: var(--success); font-size: 18px; }
@@ -119,14 +108,49 @@
 
     <header>
         <div class="logo-area">
-            <img src="https://i.postimg.cc/MZMgVNzF/Gemini-Generated-Image-t91bx6t91bx6t91b.png" alt="Logo">
-            <h1>خياطة المفروشات Couture d'Ameublement</h1>
+            <img src="رابط_اللوجو_هنا" alt="Logo">
+            <h1>اسم الصفحة هنا</h1>
         </div>
         <div class="header-actions">
-            <a href="https://www.facebook.com/profile.php?id=61588499051492" target="_blank" style="color: #1877f2; font-size: 22px;"><i class="fab fa-facebook"></i></a>
+            <a href="رابط_الفيسبوك_هنا" target="_blank" style="color: #1877f2; font-size: 20px;"><i class="fab fa-facebook"></i></a>
             <a href="#" class="cart-icon">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count">0</span>
             </a>
         </div>
     </header>
+
+    <div class="search-container">
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="بحث...">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid">
+            
+            <div class="card">
+                <div class="img-box">
+                    <img src="رابط_صورة_المنتج" alt="منتج">
+                </div>
+                <div class="card-body">
+                    <h3>اسم المنتج هنا</h3>
+                    <div class="price-tag">00.00 د.ج</div>
+                    <a href="#" class="btn-view">عرض التفاصيل</a>
+                    <button class="btn-add-cart">إضافة إلى السلة</button>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i> تم الإضافة بنجاح
+    </div>
+
+    <footer>
+        &copy; 2026 جميع الحقوق محفوظة
+    </footer>
+
+</body>
+</html>
